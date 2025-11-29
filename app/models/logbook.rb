@@ -1,0 +1,2 @@
+class Logbook < ApplicationRecord
+end

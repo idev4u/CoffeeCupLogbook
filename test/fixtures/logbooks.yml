@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cup_type: MyString
+  amount: 1
+
+two:
+  cup_type: MyString
+  amount: 1

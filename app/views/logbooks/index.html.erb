@@ -1,0 +1,10 @@
+<h1>Logbooks#index</h1>
+
+<div id="logbooks">
+  <% @logbooks.each do |entry| %>
+    <div>
+      <%= entry.cup_type %>
+      <%= entry.amount %>
+    </div>
+  <% end %>
+</div>
