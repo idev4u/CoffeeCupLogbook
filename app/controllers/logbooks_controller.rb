@@ -21,6 +21,7 @@ class LogbooksController < ApplicationController
     @logbook = Logbook.new(loogbook_params)
     puts "XXX: #{@logbook}"
     if @logbook.save
+      # redrect to index fix this 
       redirect_to @logbook
     else
       render :new, status: :unprocessable_entity
