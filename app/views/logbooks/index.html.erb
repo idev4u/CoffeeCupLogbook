@@ -1,10 +1,20 @@
 <h1>Logbooks#index</h1>
 
+
+
 <div id="logbooks">
-  <% @logbooks.each do |entry| %>
+  <% @logbooks.each do |logbook| %>
     <div>
-      <%= entry.cup_type %>
-      <%= entry.amount %>
+      <%= logbook.cup_type %>
+      <%= logbook.amount %>
+      <%= logbook.id %>
+      <%= link_to logbook.cup_type, logbook_path(logbook.id) %>
     </div>
   <% end %>
 </div>
+<div>
+    Anzahl Coffee Cups <%= @logbook_sum %>
+</div>
+
+
+<%= link_to "Add Coffee", new_logbook_path %>

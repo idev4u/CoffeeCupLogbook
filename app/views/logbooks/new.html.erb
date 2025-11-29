@@ -1,0 +1,18 @@
+<h1>Add a coofee</h1>
+
+<%= form_with model: @logbook do |form| %>
+  <div>
+    <%= form.label :cup_type, "Coffee" %>
+    <%= form.text_field :cup_type, value:"Coffee"%>
+    <!--%= form.label :cup_type, "Coffee" %-->
+    <!--%= form.checkbox :cup_type %-->
+    <%= form.label :amount %>
+    <%= form.text_field :amount, value:"1"%>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
+
+<%= link_to "Cancel", logbooks_path %>
