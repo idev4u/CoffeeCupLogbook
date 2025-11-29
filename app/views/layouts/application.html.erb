@@ -24,6 +24,12 @@
   </head>
 
   <body>
-    <%= yield %>
+    <!-- main class="container mx-auto mt-28 px-5 flex" -->
+      <% if flash[:notice] %>
+        <p class="flash"><%= flash[:notice] %></p>
+      <% end %>
+
+      <%= yield %>
+    </main>
   </body>
 </html>

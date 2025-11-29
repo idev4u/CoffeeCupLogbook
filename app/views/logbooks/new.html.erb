@@ -1,18 +1,24 @@
-<h1>Add a Coffee</h1>
+<% content_for :title, "Add a Coffee" %>
 
-<%= form_with model: @logbook do |form| %>
-  <div>
-    <%= form.label :cup_type, "Coffee" %>
-    <%= form.text_field :cup_type, value:"Coffee"%>
-    <!--%= form.label :cup_type, "Coffee" %-->
-    <!--%= form.checkbox :cup_type %-->
-    <%= form.label :amount %>
-    <%= form.text_field :amount, value:"1"%>
+<div class="md:grid md:grid-cols-3 md:gap-6">
+  <div class="md:col-span-1">
+    <div class="px-4 sm:px-0">
+      <h1 class="text-2xl font-bold text-gray-900 mb-2">Count your Coffee</h1>
+      <p class="mt-1 text-sm text-gray-600">
+        Add the amount of Coffee
+      </p>
+      <div class="mt-5 md:mt-0 md:col-span-2">
+        <div class="shadow sm:rounded-md sm:overflow-hidden">
+          <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
+            <%= render "form", logbook: @logbook %>
+          </div>
+        </div>
+      </div>
+      <div class="mt-6">
+        <div class="flex justify-end">
+            <%= link_to "CancBack to Counter", logbooks_path, class: "bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" %>
+         </div>
+      </div>
+    </div>
   </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
-
-<%= link_to "Cancel", logbooks_path %>
+</div>
