@@ -23,14 +23,17 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-    <!-- main class="container mx-auto mt-28 px-5 flex" -->
-      <%= render "layouts/navbar" %>
-      <% if flash[:notice] %>
-        <p class="flash"><%= flash[:notice] %></p>
-      <% end %>
+  <body class="bg-gray-50">
+  <%= render "layouts/navbar" %>
 
-      <%= yield %>
-    </main>
-  </body>
+  <main class="container mx-auto mt-8 px-5">
+    <% if flash[:notice] %>
+      <p class="mb-4 rounded bg-green-100 px-4 py-2 text-sm text-green-800">
+        <%= flash[:notice] %>
+      </p>
+    <% end %>
+
+    <%= yield %>
+  </main>
+</body>
 </html>
