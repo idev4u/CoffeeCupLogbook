@@ -25,16 +25,18 @@
   <% end %>
 
   <div>
-    <%= form.label "Type of Cup", class: "block text-sm font-medium text-gray-700" %>
-    <div class="mt-1">
-      <%= form.text_field :cup_type, value:"Coffee", class: "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" %>
-    </div>
+    <%= form.label :cup_type, "Type of Cup", class: "block text-sm font-medium text-gray-700" %>
+      <div class="mt-1 flex items-center space-x-2">
+      <%= form.check_box :cup_type, { checked: logbook.cup_type.blank? || logbook.cup_type == "Coffee" }, "Coffee", "" %>
+      <span class="text-sm text-gray-700">Coffee</span>
+      </div>
   </div>
+  
 
-    <div>
-    <%= form.label "Amount of Cups", class: "block text-sm font-medium text-gray-700" %>
+  <div>
+    <%= form.label :amount, "Amount of Cups", class: "block text-sm font-medium text-gray-700" %>
     <div class="mt-1">
-      <%= form.text_field :amount, value:"1" , class: "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" %>
+      <%= form.select :amount, options_for_select((1..10).to_a, logbook.amount || 1), {}, class: "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" %>
     </div>
   </div>
 

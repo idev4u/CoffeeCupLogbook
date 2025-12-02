@@ -18,10 +18,10 @@ class LogbooksController < ApplicationController
   end
 
   def create
-    @logbook = Logbook.new(loogbook_params)
+    @logbook = Logbook.new(logbook_params)
     puts "XXX: #{@logbook}"
     if @logbook.save
-      # redrect to index fix this 
+      # redrect to index fix this
       redirect_to @logbook
     else
       render :new, status: :unprocessable_entity
@@ -29,8 +29,8 @@ class LogbooksController < ApplicationController
   end
 
   private
-    def loogbook_params
-      params.expect(logbook: [ :cup_type, :amount ])
+    def logbook_params
+      params.require(:logbook).permit(:cup_type, :amount)
     end
 
 end
