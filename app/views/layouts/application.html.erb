@@ -24,16 +24,15 @@
   </head>
 
   <!-- body class="bg-gray-50" -->
-<body class="h-full relative">
+<body class="h-full relative m-0">
 
+  <%= render "layouts/navbar" %>
   <div
     class="absolute inset-0 bg-repeat bg-[length:260px] opacity-30 -z-10"
     style="background-image: url('<%= asset_path("coffee_pattern.png") %>');">
   </div>
 
-  <%= render "layouts/navbar" %>
-
-  <main class="relative z-10 container mx-auto mt-8 px-5">
+  <main class="relative z-10 container mx-auto pt-20 px-5">
     <% if flash[:notice] %>
       <p class="mb-4 rounded bg-green-100 px-4 py-2 text-sm text-green-800">
         <%= flash[:notice] %>
