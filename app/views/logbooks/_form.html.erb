@@ -29,6 +29,8 @@
       <div class="mt-1 flex items-center space-x-2">
       <%= form.check_box :cup_type, { checked: logbook.cup_type.blank? || logbook.cup_type == "Coffee" }, "Coffee", "" %>
       <span class="text-sm text-gray-700">Coffee</span>
+      <%= form.check_box :cup_type, {}, "Plauen Gold Package", "" %>
+      <span class="text-sm text-gray-700">Coffee Package</span>
       </div>
   </div>
   
