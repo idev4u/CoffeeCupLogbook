@@ -1,7 +1,8 @@
 class LogbooksController < ApplicationController
   
   def index
-    @logbooks = Logbook.all
+    # @logbooks = Logbook.all
+    @logbooks = Logbook.where(cup_type: 'Coffee')
     @logbook_sum = 0
     @logbooks.each do | logbook |
       @logbook_sum=@logbook_sum+logbook.amount
