@@ -3,10 +3,19 @@ class LogbooksController < ApplicationController
   def index
     # @logbooks = Logbook.all
     @logbooks = Logbook.where(cup_type: 'Coffee')
+    @package_logbook = Logbook.where(cup_type: 'Plauen Gold Package')
     @logbook_sum = 0
     @logbooks.each do | logbook |
       @logbook_sum=@logbook_sum+logbook.amount
     end
+    
+    puts "XXX: #{@package_logbook}"
+    @package_logbook_sum = 0
+
+    @package_logbook.each do | package |
+      @package_logbook_sum=@package_logbook_sum+package.amount
+    end
+    puts "XXX: #{@package_logbook_sum}"
 
   end
 
