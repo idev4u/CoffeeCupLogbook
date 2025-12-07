@@ -39,3 +39,9 @@
 
 # Ignore DS fiiles
 .DS_Store
+
+# ignore backups from development
+backups/
+
+# do not check in this file the env vars ar stored in this file
+mise.toml
