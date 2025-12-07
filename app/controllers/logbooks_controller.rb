@@ -32,7 +32,8 @@ class LogbooksController < ApplicationController
     puts "XXX: #{@logbook}"
     if @logbook.save
       # redrect to index fix this
-      redirect_to @logbook
+      # redirect_to @logbook
+      redirect_to root_path, notice: "Eintrag erfolgreich erstellt."
     else
       render :new, status: :unprocessable_entity
     end
