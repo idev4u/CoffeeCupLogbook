@@ -171,6 +171,46 @@ bundle exec rubocop
 ```
 
 ---
+## backup sqlite db 
+
+first things first don't store the sqlite3 file in the container because with every restart the file is gone.
+so change the volume section in config/deploy.yml
+
+```yaml
+volumes: 
+  # Host-Storage (inkl. production.sqlite3) -> /rails/storage im Container
+  - "/Users/apprunner/storage/local_s3/cupcounter:/rails/storage"
+```
+
+execute the script local to test it
+```zsh
+DB_PATH=storage/production.sqlite3 \
+BACKUP_DIR="./backups" \
+BACKUP_KEEP=5 \
+bin/backup_sqlite.sh
+```
+
+thanks to kamal accessories your are able to deploy side car container for maintanace task
+to do this add this section for a backup contianer
+```yaml
+accessories:
+  backup:
+    image: normansutorius/cupcounter
+    host: homeserver.local
+    directories:
+      - "/Users/apprunner/storage/local_s3/cupcounter:/rails/storage"
+    env:
+      clear:
+        DB_PATH: /rails/storage/production.sqlite3
+        BACKUP_DIR: /rails/storage/backups
+        BACKUP_KEEP: 5
+    cmd: "bash -lc 'while true; do /rails/bin/backup_sqlite; sleep 86400; done'"
+```
+and if it urgent you can exceute the aliases:
+```yaml
+backup_now: accessory exec backup "/rails/bin/backup_sqlite"
+backup_logs: accessory logs backup
+```
 
 ## ☕ Credits
 
