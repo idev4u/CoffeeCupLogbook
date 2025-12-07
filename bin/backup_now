@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+set -e
+
+echo "→ Triggering backup in backup accessory container..."
+
+# Run the backup script inside the backup accessory immediately
+bin/kamal accessory exec backup "/rails/bin/backup_sqlite"
+
+echo "✓ Backup completed."
