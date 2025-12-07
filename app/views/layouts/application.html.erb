@@ -21,10 +21,12 @@
     <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <%= javascript_include_tag "chartkick", "Chart.bundle", defer: true %>
   </head>
 
   <!-- body class="bg-gray-50" -->
-<body class="h-full relative m-0">
+<!-- body class="h-full relative m-0" -->
+<body class="min-h-screen relative">
 
   <%= render "layouts/navbar" %>
   <div
@@ -32,14 +34,23 @@
     style="background-image: url('<%= asset_path("coffee_pattern.png") %>');">
   </div>
 
-  <main class="relative z-10 container mx-auto pt-20 px-5">
-    <% if flash[:notice] %>
-      <p class="mb-4 rounded bg-green-100 px-4 py-2 text-sm text-green-800">
-        <%= flash[:notice] %>
-      </p>
+  <!-- main class="relative z-10 container mx-auto pt-20 px-5"-->
+    <% if content_for?(:full_width) %>
+    <!-- Full-width page (e.g. stats dashboard) -->
+    <main class="relative z-10 pt-20">
+      <%= yield %>
+    </main>
+    <% else %>
+      <!-- Normal pages with centered container -->
+      <main class="relative z-10 container mx-auto pt-20 px-5">
+        <% if flash[:notice] %>
+          <p class="mb-4 rounded bg-green-100 px-4 py-2 text-sm text-green-800">
+            <%= flash[:notice] %>
+          </p>
+        <% end %>
+        <%= yield %>
+      </main>
     <% end %>
-
-    <%= yield %>
   </main>
 
 </body>

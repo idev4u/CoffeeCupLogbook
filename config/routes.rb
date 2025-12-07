@@ -15,4 +15,5 @@ Rails.application.routes.draw do
   # get "/logbook", to: "logbook#index"
   root "logbooks#index"
   resources :logbooks
+  get "coffee_stats", to: "statistics#index", as: :coffee_stats
 end
