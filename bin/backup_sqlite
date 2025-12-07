@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Konfig via ENV, mit Defaults
+DB_PATH="${DB_PATH:-/rails/storage/production.sqlite3}"
+BACKUP_DIR="${BACKUP_DIR:-/rails/storage/backups}"
+KEEP="${BACKUP_KEEP:-5}"
+
+mkdir -p "$BACKUP_DIR"
+
+TIMESTAMP="$(date +"%Y-%m-%d_%H-%M-%S")"
+TEMP_FILE="${BACKUP_DIR}/temp_${TIMESTAMP}.sqlite3"
+BACKUP_FILE="${BACKUP_DIR}/production_${TIMESTAMP}.sqlite3"
+
+echo "[backup] Vacuum from ${DB_PATH} -> ${BACKUP_FILE}"
+
+# VACUUM in temporäre Datei
+sqlite3 "$DB_PATH" "VACUUM INTO '${TEMP_FILE}';"
+
+mv "${TEMP_FILE}" "${BACKUP_FILE}"
+
+echo "[backup] Created ${BACKUP_FILE}"
+
+# Rotation: nur die letzten KEEP behalten
+cd "${BACKUP_DIR}"
+ls -1t production_*.sqlite3 | sed -e "1,${KEEP}d" | xargs -r rm --
+
+echo "[backup] Rotation done (keep=${KEEP})."
