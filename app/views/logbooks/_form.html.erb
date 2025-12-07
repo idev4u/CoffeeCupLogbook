@@ -25,21 +25,56 @@
   <% end %>
 
   <div>
-    <%= form.label :cup_type, "Type of Cup", class: "block text-sm font-medium text-gray-700" %>
-    <div class="mt-2 space-y-2">
+    <%= form.label :cup_type, "Type of Cup", class: "block text-xs font-semibold tracking-wide text-gray-600 uppercase" %>
 
-      <label class="inline-flex items-center space-x-2">
-        <%= form.radio_button :cup_type, "Coffee", checked: (logbook.cup_type.blank? || logbook.cup_type == "Coffee") %>
-        <span class="text-sm text-gray-700">Coffee</span>
+    <div class="mt-3 grid grid-cols-1 gap-3">
+
+      <!-- Coffee -->
+      <label class="flex items-center justify-between rounded-xl border border-gray-200 bg-white/80 px-4 py-3 shadow-sm
+                    cursor-pointer transition peer-checked:border-indigo-500 peer-checked:bg-indigo-50 peer-checked:shadow-md">
+
+        <!-- Peer-Input: muss VOR den Elementen mit peer-checked stehen -->
+        <%= form.radio_button :cup_type, "Coffee",
+              class: "peer sr-only",
+              checked: (logbook.cup_type.blank? || logbook.cup_type == "Coffee") %>
+
+        <!-- Inhalt links -->
+        <div class="flex items-center space-x-3">
+          <span class="text-xl">☕</span>
+          <div class="flex flex-col">
+            <span class="text-sm font-medium text-gray-900">Coffee</span>
+            <span class="text-xs text-gray-500">Single cup</span>
+          </div>
+        </div>
+
+        <!-- Fake-Radio rechts -->
+        <div class="h-4 w-4 rounded-full border border-gray-300
+                    peer-checked:border-indigo-500 peer-checked:bg-indigo-500"></div>
       </label>
 
-      <label class="inline-flex items-center space-x-2">
-        <%= form.radio_button :cup_type, "Plauen Gold Package", checked: (logbook.cup_type == "Plauen Gold Package") %>
-        <span class="text-sm text-gray-700">Coffee Package</span>
+      <!-- Coffee Package -->
+      <label class="flex items-center justify-between rounded-xl border border-gray-200 bg-white/80 px-4 py-3 shadow-sm
+                    cursor-pointer transition peer-checked:border-indigo-500 peer-checked:bg-indigo-50 peer-checked:shadow-md">
+
+        <%= form.radio_button :cup_type, "Plauen Gold Package",
+              class: "peer sr-only",
+              checked: (logbook.cup_type == "Plauen Gold Package") %>
+
+        <div class="flex items-center space-x-3">
+          <span class="text-xl">📦</span>
+          <div class="flex flex-col">
+            <span class="text-sm font-medium text-gray-900">Coffee Package</span>
+            <span class="text-xs text-gray-500">500g package</span>
+          </div>
+        </div>
+
+        <div class="h-4 w-4 rounded-full border border-gray-300
+                    peer-checked:border-indigo-500 peer-checked:bg-indigo-500"></div>
       </label>
 
     </div>
   </div>
+
   
 
   <div>
@@ -53,7 +88,7 @@
   <div class="pt-5">
     <div class="flex justify-end">
       <%= link_to "Cancel", logbooks_path, class: "bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" %>
-      <%= form.submit class: "ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" %>
+      <%= form.submit "Add Usage", class: "ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" %>
     </div>
   </div>
 <% end %>
