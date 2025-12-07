@@ -6,7 +6,7 @@ class StatisticsController < ApplicationController
     @today     = scope.where(created_at: today.all_day).sum(:amount)
     @this_week = scope.where(created_at: today.all_week).sum(:amount)
     @this_month = scope.where(created_at: today.all_month).sum(:amount)
-    @total     = scope.sum(:amount)
+    @total     = scope.where(cup_type: 'Coffee').sum(:amount)
 
     @cups_per_day = scope
       .group_by_day(:created_at, last: 14)
