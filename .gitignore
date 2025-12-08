@@ -45,3 +45,6 @@ backups/
 
 # do not check in this file the env vars ar stored in this file
 mise.toml
+
+# vs code specific folder 
+.vscode/
