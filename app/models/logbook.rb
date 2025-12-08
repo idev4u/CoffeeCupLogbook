@@ -6,4 +6,13 @@ class Logbook < ApplicationRecord
               greater_than: 0,
               less_than_or_equal_to: 10
             }
+    validate :package_size_required_for_package
+
+    private
+
+    def package_size_required_for_package
+      if cup_type == "Package" && package_size_grams.blank?
+        errors.add(:package_size_grams, "must be set for packages")
+      end
+    end
 end

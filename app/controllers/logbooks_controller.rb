@@ -40,8 +40,11 @@ class LogbooksController < ApplicationController
   end
 
   private
-    def logbook_params
-      params.require(:logbook).permit(:cup_type, :amount)
-    end
-
+  def logbook_params
+    params.require(:logbook).permit(
+      :cup_type,
+      :amount,
+      :package_size_grams
+    )
+  end
 end

@@ -10,11 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2025_11_29_100543) do
+ActiveRecord::Schema[8.1].define(version: 2025_12_08_144700) do
   create_table "logbooks", force: :cascade do |t|
     t.integer "amount"
     t.datetime "created_at", null: false
     t.string "cup_type"
+    t.integer "package_size_grams"
     t.datetime "updated_at", null: false
   end
 end
