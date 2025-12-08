@@ -216,3 +216,14 @@ backup_logs: accessory logs backup
 
 Background pattern drawn using AI generation.
 Rails + Tailwind integration refined with ChatGPT assistance.
+
+## debug database
+```zsh
+kamal console 
+```
+
+```ruby
+Logbook.all.each do | lb |
+  puts lb.cup_type+"::"+lb.id.to_s+":"+lb.created_at.to_s
+end
+```
