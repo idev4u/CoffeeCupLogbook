@@ -32,7 +32,7 @@
 
       <!-- Coffee -->
       <label class="flex items-center justify-between rounded-xl border border-gray-200 bg-white/80 px-4 py-3 shadow-sm
-                    cursor-pointer transition peer-checked:border-indigo-500 peer-checked:bg-indigo-50 peer-checked:shadow-md">
+                    cursor-pointer transition peer-checked:border-purple-500 peer-checked:bg-purple-50 peer-checked:shadow-md">
 
         <!-- Peer-Input: muss VOR den Elementen mit peer-checked stehen -->
         <%= form.radio_button :cup_type, "Coffee",
@@ -50,13 +50,13 @@
 
         <!-- Fake-Radio rechts -->
         <div class="h-4 w-4 rounded-full border border-gray-300
-                    peer-checked:border-indigo-500 peer-checked:bg-indigo-500"></div>
+                    peer-checked:border-purple-500 peer-checked:bg-purple-500"></div>
       </label>
 
       <!-- Coffee Package (mit Größe) -->
       <!-- Coffee Package 250g -->
       <label class="flex items-center justify-between rounded-xl border border-gray-200 bg-white/80 px-4 py-3 shadow-sm
-              cursor-pointer transition peer-checked:border-indigo-500 peer-checked:bg-indigo-50 peer-checked:shadow-md">
+              cursor-pointer transition peer-checked:border-purple-500 peer-checked:bg-purple-50 peer-checked:shadow-md">
         <%= form.radio_button :cup_type, "Probe Package",
               class: "peer sr-only",
               checked: (logbook.cup_type == "Probe Package") %>
@@ -69,14 +69,14 @@
         </div>
 
         <div class="h-4 w-4 rounded-full border border-gray-300
-                    peer-checked:border-indigo-500 peer-checked:bg-indigo-500"></div>
+                    peer-checked:border-purple-500 peer-checked:bg-purple-500"></div>
         <!-- %= form.hidden_field :package_size_grams, value: 250 % -->
       </label>
 
 
       <!-- Coffee Package 500g -->
       <label class="flex items-center justify-between rounded-xl border border-gray-200 bg-white/80 px-4 py-3 shadow-sm
-                    cursor-pointer transition peer-checked:border-indigo-500 peer-checked:bg-indigo-50 peer-checked:shadow-md">
+                    cursor-pointer transition peer-checked:border-purple-500 peer-checked:bg-purple-50 peer-checked:shadow-md">
 
         <%= form.radio_button :cup_type, "Plauen Gold Package",
               class: "peer sr-only",
@@ -91,7 +91,7 @@
         </div>
 
         <div class="h-4 w-4 rounded-full border border-gray-300
-                    peer-checked:border-indigo-500 peer-checked:bg-indigo-500"></div>
+                    peer-checked:border-purple-500 peer-checked:bg-purple-500"></div>
 
         <!-- %= form.hidden_field :package_size_grams, value: 500 % -->
       </label>
@@ -105,14 +105,14 @@
       <%= form.select :amount,
             options_for_select((1..10).to_a, logbook.amount || 1),
             {},
-            class: "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" %>
+            class: "shadow-sm focus:ring-purple-500 focus:border-purple-500 block w-full sm:text-sm border-gray-300 rounded-md" %>
     </div>
   </div>
 
   <div class="pt-5">
     <div class="flex justify-end">
-      <%= link_to "Cancel", logbooks_path, class: "bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" %>
-      <%= form.submit "Add Usage", class: "ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" %>
+      <%= link_to "Cancel", logbooks_path, class: "bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500" %>
+      <%= form.submit "Add Usage", class: "ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500" %>
     </div>
   </div>
 <% end %>
