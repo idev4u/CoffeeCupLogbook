@@ -98,7 +98,7 @@
       <path
          id="hex-outer"
          d="M 268.99278,31.495837 451.00722,136.50416 A 25.971151,25.971151 59.99082 0 1 464,159 v 194 a 25.971151,25.971151 120.00918 0 1 -12.99278,22.49584 L 268.99278,480.50416 a 26,26 180 0 1 -25.98556,0 L 60.992784,375.49584 A 25.971151,25.971151 59.99082 0 1 48,353 V 159 A 25.971151,25.971151 120.00918 0 1 60.992784,136.50416 L 243.00722,31.495837 a 26,26 0 0 1 25.98556,0 z"
-         style="fill:#660080;stroke-width:1.4;stroke-dasharray:none;paint-order:markers fill stroke" />
+         style="fill:#333333;stroke-width:1.4;stroke-dasharray:none;paint-order:markers fill stroke" />
       <path
          id="hex-inner-fill"
          d="M 72,345 V 167 A 25.708493,25.708493 120.26206 0 0 85.058443,144.61914 L 242.94156,55.380859 a 26.538462,26.538462 0 0 0 26.11688,0 L 426.94156,144.61914 A 25.708493,25.708493 59.737945 0 0 440,167 v 178 a 25.708493,25.708493 120.26206 0 0 -13.05844,22.38086 l -157.88312,89.23828 a 26.538462,26.538462 0 0 0 -26.11688,0 L 85.058443,367.38086 A 25.708493,25.708493 59.737945 0 0 72,345 Z"
@@ -113,7 +113,7 @@
            fill="#f6b700"
            id="rect2"
            clip-path="url(#clipPath17)"
-           style="fill:#eeaaff"
+           style="fill:#cccccc"
            d="m 72,48 h 368 v 69 H 72 Z"
            ry="0" />
         <rect
@@ -124,7 +124,7 @@
            fill="#f18a1b"
            id="rect3"
            clip-path="url(#clipPath16)"
-           style="fill:#e580ff" />
+           style="fill:#b3b3b3" />
         <rect
            x="72"
            y="186"
@@ -133,7 +133,7 @@
            fill="#e4552a"
            id="rect4"
            clip-path="url(#clipPath15)"
-           style="fill:#dd55ff" />
+           style="fill:#999999" />
         <rect
            x="72"
            y="255"
@@ -142,7 +142,7 @@
            fill="#c13a2a"
            id="rect5"
            clip-path="url(#clipPath14)"
-           style="fill:#cc00ff" />
+           style="fill:#808080" />
         <rect
            x="72"
            y="324"
@@ -151,7 +151,7 @@
            fill="#0f8c8c"
            id="rect6"
            clip-path="url(#clipPath13)"
-           style="fill:#aa00d4" />
+           style="fill:#666666" />
         <rect
            x="72"
            y="393"
@@ -160,7 +160,7 @@
            fill="#0c5963"
            id="rect7"
            clip-path="url(#clipPath12)"
-           style="fill:#8800aa" />
+           style="fill:#4d4d4d" />
         <g
            id="layer1">
           <rect
@@ -170,7 +170,7 @@
              height="180"
              rx="13.292828"
              id="rect8"
-             style="fill:#f7f3e8;stroke-width:1.28911" />
+             style="fill:#ffffff;stroke-width:1.28911" />
           <rect
              x="205.57837"
              y="165.05074"
@@ -178,7 +178,7 @@
              height="180"
              rx="13.292828"
              id="rect9"
-             style="fill:#f7f3e8;stroke-width:1.28911" />
+             style="fill:#ffffff;stroke-width:1.28911" />
           <rect
              x="264.30133"
              y="165.05074"
@@ -186,7 +186,7 @@
              height="180"
              rx="13.292828"
              id="rect10"
-             style="fill:#f7f3e8;stroke-width:1.28911" />
+             style="fill:#ffffff;stroke-width:1.28911" />
           <rect
              x="323.02426"
              y="164.09581"
@@ -194,7 +194,7 @@
              height="180"
              rx="13.292828"
              id="rect11"
-             style="fill:#f7f3e8;stroke-width:1.28911" />
+             style="fill:#ffffff;stroke-width:1.28911" />
           <rect
              x="322.76987"
              y="-272.73608"
@@ -203,7 +203,7 @@
              rx="11.410151"
              transform="matrix(0.40984069,0.91215712,-0.90013168,0.4356179,0,0)"
              id="rect12"
-             style="fill:#f7f3e8;stroke-width:1.40929;stroke-dasharray:none" />
+             style="fill:#ffffff;stroke-width:1.40929;stroke-dasharray:none" />
         </g>
       </g>
     </g>

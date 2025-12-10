@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg
+  width="512"
+  height="512"
+  viewBox="0 0 512 512"
+  xmlns="http://www.w3.org/2000/svg"
+  version="1.1">
+
+  <title>TALLY GO! Hexagon Badge</title>
+
+  <!-- Farben -->
+  <!--
+    Outer Border: #0f4b3c
+    Sunset Stripes:
+      #F6B700 (top)
+      #F18A1B
+      #E4552A
+      #C13A2A
+      #0F8C8C
+      #0C5963 (bottom)
+    Tally Marks: #F7F3E8
+    Background (außerhalb Hex): transparent
+  -->
+
+  <!-- Hintergrund transparent lassen -->
+  <rect x="0" y="0" width="512" height="512" fill="none" />
+
+  <!-- Gruppe: Badge -->
+  <g id="badge">
+
+    <!-- Außen-Hexagon-Rand -->
+    <polygon
+      id="hex-outer"
+      fill="#0f4b3c"
+      points="
+        256,24
+        464,144
+        464,368
+        256,488
+        48,368
+        48,144
+      " />
+
+    <!-- Innen-Hexagon als Clip-Bereich -->
+    <defs>
+      <polygon
+        id="hex-inner-shape"
+        points="
+          256,48
+          440,152
+          440,360
+          256,464
+          72,360
+          72,152
+        " />
+      <clipPath id="hex-clip">
+        <use href="#hex-inner-shape" />
+      </clipPath>
+    </defs>
+
+    <!-- Innenfläche dunkel (falls du ohne Streifen arbeiten willst) -->
+    <use
+      id="hex-inner-fill"
+      href="#hex-inner-shape"
+      fill="#0C5963" />
+
+    <!-- Gruppe: Sunset-Stripes, auf Innen-Hexagon geclippt -->
+    <g id="sunset-stripes" clip-path="url(#hex-clip)">
+      <!-- wir teilen die Höhe grob in 6 horizontale Bänder -->
+      <!-- Höhe Innen-Hex grob: 464 - 48 = 416 => ca. 69px je Band -->
+
+      <rect x="72" y="48"  width="368" height="69" fill="#F6B700" />
+      <rect x="72" y="117" width="368" height="69" fill="#F18A1B" />
+      <rect x="72" y="186" width="368" height="69" fill="#E4552A" />
+      <rect x="72" y="255" width="368" height="69" fill="#C13A2A" />
+      <rect x="72" y="324" width="368" height="69" fill="#0F8C8C" />
+      <rect x="72" y="393" width="368" height="69" fill="#0C5963" />
+    </g>
+
+    <!-- Gruppe: Tally Marks -->
+    <g id="tally-marks" fill="#F7F3E8">
+      <!-- Position grob zentriert im oberen 2/3 des Hexagons -->
+
+      <!-- vier vertikale Striche -->
+      <rect x="190" y="140" width="24" height="180" rx="8" />
+      <rect x="222" y="140" width="24" height="180" rx="8" />
+      <rect x="254" y="140" width="24" height="180" rx="8" />
+      <rect x="286" y="140" width="24" height="180" rx="8" />
+
+      <!-- diagonaler Strike -->
+      <rect
+        x="182"
+        y="150"
+        width="24"
+        height="210"
+        rx="8"
+        transform="rotate(-25 194 255)" />
+    </g>
+
+  </g>
+</svg>
