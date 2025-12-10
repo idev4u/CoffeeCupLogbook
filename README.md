@@ -1,204 +1,73 @@
-# Coffee Budget (Cupcounter)
+# Tally GO! Coffee
 
-A small Rails 8.1 application for tracking coffee consumption, built with ERB, TailwindCSS and the Rails asset pipeline.  
-Includes a custom navbar and a subtle tile-pattern background inspired by coffee beans.
+A small Rails 8 app for tracking coffee consumption.
+Built with ERB, TailwindCSS, Hotwire, and the Rails asset pipeline.
 
----
+## Goals
 
-## 🚀 Tech Stack
+Tally GO! is here to count cups. Nothing more.
 
-- **Ruby on Rails 8.1**
-- **TailwindCSS via tailwindcss-rails gem**
-- **Hotwire (Turbo + Stimulus)**
-- **ERB views**
-- **Rails Asset Pipeline** for images
-- **PostgreSQL** (optional, depending on setup)
+It’s meant to stay small. No dashboards, no analytics, no clever features.
+Just fast logging and a simple interface.
 
----
+If it ever stops being simple, it’s wrong.
 
-## 📦 Installation
-
-Clone the repository:
+## Setup
 
 ```bash
-git clone <your-repo-url>
-cd cupcounter
-````
-
-Install Ruby gems:
-
-```bash
+git clone git@github.com:idev4u/CoffeeCupLogbook.git
+cd CoffeeCupLogbook
 bundle install
-```
-
-Set up the database:
-
-```bash
 bin/rails db:setup
-```
-
-Start the server:
-
-```bash
 bin/dev
 ```
 
-Your app is now available at:
+The app runs on:
 
 ```
 http://localhost:3000
 ```
 
----
+## Structure
 
-## 🎨 TailwindCSS
-
-This project uses **tailwindcss-rails**, which integrates Tailwind without a Node.js toolchain.
-
-To locate the Tailwind entrypoint:
+Tailwind entrypoint:
 
 ```
 app/assets/stylesheets/application.tailwind.css
 ```
 
-You can add Tailwind layers and custom CSS there.
-
----
-
-## 🖼️ Background Pattern (Coffee Beans)
-
-The app uses a subtle repeating coffee-bean pattern as a full-screen background.
-
-Place the pattern image in:
-
-```
-app/assets/images/coffee_pattern.png
-```
-
-### Background Integration
-
-This is implemented in `application.html.erb` using a fixed overlay:
-
-```erb
-<div
-  class="absolute inset-0 bg-repeat bg-[length:260px] opacity-10 -z-10 min-h-screen"
-  style="background-image: url('<%= asset_path("coffee_pattern.png") %>');">
-</div>
-```
-
-Advantages:
-
-* Works without Tailwind configuration
-* Rails resolves fingerprinted assets
-* Fully responsive
-* Subtle design via `opacity-10`
-
----
-
-## 🧭 Navbar
-
-The navbar lives in:
-
-```
-app/views/layouts/_navbar.html.erb
-```
-
-It includes:
-
-* Logo (coffee beans)
-* App title ("Coffee Budget")
-* Desktop navigation
-* Mobile burger menu (with Tailwind classes)
-* Responsive layout with `flex`, `gap`, and `justify-between`
-
----
-
-## 📁 Layout Structure
-
-The global layout file is:
+Layout:
 
 ```
 app/views/layouts/application.html.erb
 ```
 
-It includes:
+Navbar:
 
-* full-screen patterned background
-* navbar
-* main container
-* flash message styling
-* content yield
+```
+app/views/layouts/_navbar.html.erb
+```
 
----
-
-## 🔧 Asset Handling
-
-Images are stored in:
+Assets:
 
 ```
 app/assets/images/
 ```
 
-Use Rails helpers such as:
+## Deployment
 
-```erb
-<%= image_tag "coffee_beans.png" %>
-<%= asset_path "coffee_pattern.png" %>
-```
+Uses Kamal for deployment.
+SQLite database stored on a mounted volume outside the container.
 
-Rails fingerprints asset URLs automatically in production.
+Backup accessory example:
 
----
-
-## 📚 Development Commands
-
-Start Tailwind build + Rails server (via foreman):
-
-```bash
-bin/dev
-```
-
-Run tests:
-
-```bash
-bin/rails test
-```
-
-Lint with Rubocop (if installed):
-
-```bash
-bundle exec rubocop
-```
-
----
-## backup sqlite db 
-
-first things first don't store the sqlite3 file in the container because with every restart the file is gone.
-so change the volume section in config/deploy.yml
-
-```yaml
-volumes: 
-  # Host-Storage (inkl. production.sqlite3) -> /rails/storage im Container
-  - "/Users/apprunner/storage/local_s3/cupcounter:/rails/storage"
-```
-
-execute the script local to test it
-```zsh
-DB_PATH=storage/production.sqlite3 \
-BACKUP_DIR="./backups" \
-BACKUP_KEEP=5 \
-bin/backup_sqlite.sh
-```
-
-thanks to kamal accessories your are able to deploy side car container for maintanace task
-to do this add this section for a backup contianer
 ```yaml
 accessories:
   backup:
-    image: normansutorius/cupcounter
+    image: <your docker hub user>/cupcounter
     host: homeserver.local
     directories:
-      - "/Users/apprunner/storage/local_s3/cupcounter:/rails/storage"
+      - "/Users/<your account>/storage/local_s3/cupcounter:/rails/storage"
     env:
       clear:
         DB_PATH: /rails/storage/production.sqlite3
@@ -206,24 +75,17 @@ accessories:
         BACKUP_KEEP: 5
     cmd: "bash -lc 'while true; do /rails/bin/backup_sqlite; sleep 86400; done'"
 ```
-and if it urgent you can exceute the aliases:
-```yaml
-backup_now: accessory exec backup "/rails/bin/backup_sqlite"
-backup_logs: accessory logs backup
-```
 
-## ☕ Credits
+---
 
-Background pattern drawn using AI generation.
-Rails + Tailwind integration refined with ChatGPT assistance.
+## Support
 
-## debug database
-```zsh
-kamal console 
-```
+If you want to support the work on Tally Go!, you can do so here:
 
-```ruby
-Logbook.all.each do | lb |
-  puts lb.cup_type+"::"+lb.id.to_s+":"+lb.created_at.to_s
-end
-```
+<a href="https://buymeacoffee.com/idev4u" target="_blank">
+  <img src="https://cdn.buymeacoffee.com/buttons/v2/default-black.png" width="150" alt="Buy Me A Coffee">
+</a>
+
+---
+
+[more details](docs/extend_details.md)
