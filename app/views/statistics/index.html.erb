@@ -2,7 +2,7 @@
 <div class="min-h-screen bg-slate-50">
   <!-- Top Bar -->
   <header class="border-b border-slate-200 bg-white/70 backdrop-blur">
-    <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-6 flex items-center justify-between">
       <div>
         <h1 class="text-xl font-semibold text-slate-900">
           Coffee Stats
@@ -18,12 +18,12 @@
       </div>
 
       <div class="flex items-center gap-2 text-xs text-slate-500">
-        <span class="inline-flex items-center gap-1 rounded-full bg-emerald-50 px-2 py-1 font-medium text-emerald-700">
+        <span class="inline-flex items-center gap-1 rounded-full bg-emerald-50 px-5 py-0.5 font-medium text-emerald-700">
           <span class="text-[10px]">●</span>
           Tracking active
         </span>
         <%= link_to "Back to logbook", logbooks_path,
-              class: "rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-medium text-slate-700 hover:bg-slate-50" %>
+              class: "rounded-full border border-slate-200 bg-white px-2 py-3 text-xs font-medium text-slate-700 hover:bg-slate-50" %>
       </div>
     </div>
   </header>
@@ -70,14 +70,14 @@
         </div>
 
         <!-- Total -->
-        <div class="rounded-2xl bg-amber-50 shadow-sm border border-amber-100 px-4 py-3 flex flex-col justify-between">
+        <div class="rounded-2xl bg-purple-50 shadow-sm border border-purple-100 px-4 py-3 flex flex-col justify-between">
           <div class="flex items-center justify-between mb-2">
-            <span class="text-xs font-medium text-amber-700 uppercase tracking-wide">All time</span>
-            <span class="text-[10px] rounded-full bg-amber-100 px-2 py-0.5 text-amber-700">Legacy</span>
+            <span class="text-xs font-medium text-purple-700 uppercase tracking-wide">All time</span>
+            <span class="text-[10px] rounded-full bg-purple-100 px-2 py-0.5 text-purple-700">Legacy</span>
           </div>
           <div class="flex items-baseline gap-1">
-            <span class="text-2xl font-semibold text-amber-800"><%= @total %></span>
-            <span class="text-xs text-amber-600">cups logged</span>
+            <span class="text-2xl font-semibold text-purple-800"><%= @total %></span>
+            <span class="text-xs text-purple-600">cups logged</span>
           </div>
         </div>
       </div>
@@ -105,6 +105,14 @@
           <div>
             <%= line_chart @cups_per_day,
                 height: "224px", # entspricht h-56, optional
+                colors: ["#8B5CF6"], # Tailwind purple-500
+                dataset: {
+                  backgroundColor: "rgba(139, 92, 246, 0.2)", # softer Fill
+                  borderWidth: 2,
+                  pointBackgroundColor: "#8B5CF6",
+                  pointBorderColor: "#8B5CF6",
+                  tension: 0.3
+                },
                 library: {
                 legend: { display: false },
                 scales: {
@@ -132,6 +140,11 @@
           <div>
             <%= column_chart @cups_per_month,
                   height: "224px",
+                  colors: ["#A78BFA"], # purple-400
+                  dataset: {
+                    borderColor: "#8B5CF6", # purple-500
+                    borderWidth: 1
+                  },
                   library: {
                     scales: {
                       y: { beginAtZero: true }
@@ -156,6 +169,11 @@
   
           <%= column_chart @avg_cups_by_size_chart,
                 height: "224px",
+                colors: ["#A78BFA"], # purple-400
+                dataset: {
+                  borderColor: "#8B5CF6", # purple-500
+                  borderWidth: 1
+                },
                 library: {
                   scales: {
                     y: { beginAtZero: true }
@@ -181,6 +199,11 @@
 
             <%= column_chart @cups_per_package_chart,
                   height: "224px",
+                  colors: ["#A78BFA"], # purple-400
+                  dataset: {
+                    borderColor: "#8B5CF6", # purple-500
+                    borderWidth: 1
+                  },
                   library: {
                     scales: {
                       y: { beginAtZero: true }
