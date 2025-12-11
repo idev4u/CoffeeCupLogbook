@@ -6,7 +6,7 @@ class StatisticsController < ApplicationController
     @today     = scope.where(created_at: today.all_day).sum(:amount)
     @this_week = scope.where(created_at: today.all_week).sum(:amount)
     @this_month = scope.where(created_at: today.all_month).sum(:amount)
-    @total     = scope.where(cup_type: 'Coffee').sum(:amount)
+    @total     = scope.where(cup_type: "Coffee").sum(:amount)
 
     @cups_per_day = scope
       .group_by_day(:created_at, last: 14)
@@ -23,9 +23,9 @@ class StatisticsController < ApplicationController
 
     @first_entry_date = scope.minimum(:created_at)&.to_date
 
-        # 👉 Cups per Package (nur verbrauchte Pakete, offene werden ignoriert)
+    # 👉 Cups per Package (nur verbrauchte Pakete, offene werden ignoriert)
     package_entries = scope
-      .where(cup_type: ["Probe Package", "Plauen Gold Package"])
+      .where(cup_type: [ "Probe Package", "Plauen Gold Package" ])
       .where.not(package_size_grams: nil)
       .order(:created_at)
 
@@ -59,7 +59,7 @@ class StatisticsController < ApplicationController
 
         # Daten für Chart "Cups per Package"
         label = "#{size}g (#{I18n.l(start_time.to_date)})"
-        @cups_per_package_chart << [label, coffees_in_package]
+        @cups_per_package_chart << [ label, coffees_in_package ]
 
         # Daten für Durchschnitt je Größe
         size_buckets[size] << coffees_in_package
@@ -73,7 +73,7 @@ class StatisticsController < ApplicationController
 
     # Für Chart "Avg cups by size": z. B. 250g → 27.5, 500g → 54.3
     @avg_cups_by_size_chart = @avg_cups_by_size.map do |size, data|
-      ["#{size}g", data[:avg_cups].round(1)]
+      [ "#{size}g", data[:avg_cups].round(1) ]
     end
   end
 end
