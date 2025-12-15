@@ -5,10 +5,7 @@
    viewBox="0 0 512 512"
    version="1.1"
    id="svg12"
-   sodipodi:docname="tally_color.svg"
-   inkscape:export-filename="tally_color.png"
-   inkscape:export-xdpi="96"
-   inkscape:export-ydpi="96"
+   sodipodi:docname="tally_gray_ink_svg.svg"
    inkscape:version="1.4.2 (ebf0e940, 2025-05-08)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -17,26 +14,110 @@
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:cc="http://creativecommons.org/ns#"
    xmlns:dc="http://purl.org/dc/elements/1.1/">
-  <sodipodi:namedview
-     id="namedview1"
-     pagecolor="#ffffff"
-     bordercolor="#000000"
-     borderopacity="0.25"
-     inkscape:showpageshadow="2"
-     inkscape:pageopacity="0.0"
-     inkscape:pagecheckerboard="0"
-     inkscape:deskcolor="#d1d1d1"
-     inkscape:zoom="0.57572166"
-     inkscape:cx="351.73246"
-     inkscape:cy="201.48625"
-     inkscape:window-width="1512"
-     inkscape:window-height="921"
-     inkscape:window-x="0"
-     inkscape:window-y="61"
-     inkscape:window-maximized="0"
-     inkscape:current-layer="svg12" />
   <defs
      id="defs12">
+    <inkscape:path-effect
+       effect="fillet_chamfer"
+       id="path-effect25"
+       is_visible="true"
+       lpeversion="1"
+       nodesatellites_param="F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1"
+       radius="0"
+       unit="px"
+       method="auto"
+       mode="F"
+       chamfer_steps="1"
+       flexible="false"
+       use_knot_distance="true"
+       apply_no_radius="true"
+       apply_with_radius="true"
+       only_selected="false"
+       hide_knots="false" />
+    <inkscape:path-effect
+       effect="fillet_chamfer"
+       id="path-effect24"
+       is_visible="true"
+       lpeversion="1"
+       nodesatellites_param="F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1"
+       radius="16"
+       unit="px"
+       method="auto"
+       mode="F"
+       chamfer_steps="1"
+       flexible="false"
+       use_knot_distance="true"
+       apply_no_radius="true"
+       apply_with_radius="true"
+       only_selected="true"
+       hide_knots="false" />
+    <inkscape:path-effect
+       effect="fillet_chamfer"
+       id="path-effect20"
+       is_visible="true"
+       lpeversion="1"
+       nodesatellites_param="IF,0,0,1,0,15,0,1 @ IF,0,0,1,0,15,0,1 @ IF,0,0,1,0,15,0,1 @ IF,0,0,1,0,15,0,1 @ IF,0,0,1,0,15,0,1 @ IF,0,0,1,0,15,0,1"
+       radius="0"
+       unit="px"
+       method="arc"
+       mode="F"
+       chamfer_steps="1"
+       flexible="false"
+       use_knot_distance="true"
+       apply_no_radius="true"
+       apply_with_radius="true"
+       only_selected="false"
+       hide_knots="false" />
+    <inkscape:path-effect
+       effect="fillet_chamfer"
+       id="path-effect19"
+       is_visible="true"
+       lpeversion="1"
+       nodesatellites_param="F,0,0,1,0,15,0,8 @ F,0,0,1,0,15,0,8 @ F,0,0,1,0,15,0,8 @ F,0,0,1,0,15,0,8 @ F,0,0,1,0,15,0,8 @ F,0,0,1,0,15,0,8"
+       radius="15"
+       unit="px"
+       method="auto"
+       mode="F"
+       chamfer_steps="8"
+       flexible="false"
+       use_knot_distance="true"
+       apply_no_radius="true"
+       apply_with_radius="true"
+       only_selected="true"
+       hide_knots="false" />
+    <inkscape:path-effect
+       effect="fillet_chamfer"
+       id="path-effect18"
+       is_visible="true"
+       lpeversion="1"
+       nodesatellites_param="F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1"
+       radius="0"
+       unit="px"
+       method="auto"
+       mode="F"
+       chamfer_steps="1"
+       flexible="false"
+       use_knot_distance="true"
+       apply_no_radius="true"
+       apply_with_radius="true"
+       only_selected="false"
+       hide_knots="false" />
+    <inkscape:path-effect
+       effect="fillet_chamfer"
+       id="path-effect17"
+       is_visible="true"
+       lpeversion="1"
+       nodesatellites_param="F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1"
+       radius="0"
+       unit="px"
+       method="auto"
+       mode="F"
+       chamfer_steps="1"
+       flexible="false"
+       use_knot_distance="true"
+       apply_no_radius="true"
+       apply_with_radius="true"
+       only_selected="false"
+       hide_knots="false" />
     <clipPath
        clipPathUnits="userSpaceOnUse"
        id="clipPath12">
@@ -80,6 +161,24 @@
          id="use17" />
     </clipPath>
   </defs>
+  <sodipodi:namedview
+     id="namedview12"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="1.1158148"
+     inkscape:cx="209.71222"
+     inkscape:cy="238.39081"
+     inkscape:window-width="1512"
+     inkscape:window-height="949"
+     inkscape:window-x="0"
+     inkscape:window-y="33"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer2" />
   <title
      id="title1">TALLY GO! Hexagon Badge</title>
   <!-- Farben -->
@@ -119,17 +218,25 @@
     <!-- Gruppe: Sunset-Stripes, auf Innen-Hexagon geclippt -->
     <!-- Gruppe: Tally Marks -->
     <g
-       id="layer3">
+       inkscape:groupmode="layer"
+       id="layer3"
+       inkscape:label="Layer 3">
       <path
          id="hex-outer"
          d="M 268.99278,31.495837 451.00722,136.50416 A 25.971151,25.971151 59.99082 0 1 464,159 v 194 a 25.971151,25.971151 120.00918 0 1 -12.99278,22.49584 L 268.99278,480.50416 a 26,26 180 0 1 -25.98556,0 L 60.992784,375.49584 A 25.971151,25.971151 59.99082 0 1 48,353 V 159 A 25.971151,25.971151 120.00918 0 1 60.992784,136.50416 L 243.00722,31.495837 a 26,26 0 0 1 25.98556,0 z"
-         style="fill:#660080;stroke-width:1.4;stroke-dasharray:none;paint-order:markers fill stroke" />
+         style="fill:#333333;stroke-width:1.4;stroke-dasharray:none;paint-order:markers fill stroke"
+         inkscape:path-effect="#path-effect19"
+         inkscape:original-d="M 256,24 464,144 V 368 L 256,488 48,368 V 144 Z" />
       <path
          id="hex-inner-fill"
          d="M 72,345 V 167 A 25.708493,25.708493 120.26206 0 0 85.058443,144.61914 L 242.94156,55.380859 a 26.538462,26.538462 0 0 0 26.11688,0 L 426.94156,144.61914 A 25.708493,25.708493 59.737945 0 0 440,167 v 178 a 25.708493,25.708493 120.26206 0 0 -13.05844,22.38086 l -157.88312,89.23828 a 26.538462,26.538462 0 0 0 -26.11688,0 L 85.058443,367.38086 A 25.708493,25.708493 59.737945 0 0 72,345 Z"
-         style="display:inline;fill:none;paint-order:normal" />
+         style="display:inline;fill:none;paint-order:normal"
+         inkscape:path-effect="#path-effect20"
+         inkscape:original-d="M 72,360 V 152 L 256,48 440,152 V 360 L 256,464 Z" />
       <g
-         id="layer2">
+         inkscape:groupmode="layer"
+         id="layer2"
+         inkscape:label="Layer 2">
         <path
            x="72"
            y="48"
@@ -138,7 +245,10 @@
            fill="#f6b700"
            id="rect2"
            clip-path="url(#clipPath17)"
-           style="fill:#eeaaff"
+           inkscape:label="top_farbe"
+           style="fill:#cccccc"
+           sodipodi:type="rect"
+           inkscape:path-effect="#path-effect25"
            d="m 72,48 h 368 v 69 H 72 Z"
            ry="0" />
         <rect
@@ -149,7 +259,8 @@
            fill="#f18a1b"
            id="rect3"
            clip-path="url(#clipPath16)"
-           style="fill:#e580ff" />
+           inkscape:label="top_farbe_2"
+           style="fill:#b3b3b3" />
         <rect
            x="72"
            y="186"
@@ -158,7 +269,8 @@
            fill="#e4552a"
            id="rect4"
            clip-path="url(#clipPath15)"
-           style="fill:#dd55ff" />
+           inkscape:label="top_farbe3_mitte"
+           style="fill:#999999" />
         <rect
            x="72"
            y="255"
@@ -167,7 +279,8 @@
            fill="#c13a2a"
            id="rect5"
            clip-path="url(#clipPath14)"
-           style="fill:#cc00ff" />
+           inkscape:label="bottom_farbe_3"
+           style="fill:#808080" />
         <rect
            x="72"
            y="324"
@@ -176,7 +289,8 @@
            fill="#0f8c8c"
            id="rect6"
            clip-path="url(#clipPath13)"
-           style="fill:#aa00d4" />
+           inkscape:label="Botom_farbe_2"
+           style="fill:#666666" />
         <rect
            x="72"
            y="393"
@@ -185,9 +299,12 @@
            fill="#0c5963"
            id="rect7"
            clip-path="url(#clipPath12)"
-           style="fill:#8800aa" />
+           inkscape:label="bottom_farbe"
+           style="fill:#4d4d4d" />
         <g
-           id="layer1">
+           inkscape:groupmode="layer"
+           id="layer1"
+           inkscape:label="Layer 1">
           <rect
              x="146.85542"
              y="164.09581"
@@ -195,7 +312,8 @@
              height="180"
              rx="13.292828"
              id="rect8"
-             style="fill:#f7f3e8;stroke-width:1.28911" />
+             style="fill:#ffffff;stroke-width:1.28911"
+             inkscape:label="strich1" />
           <rect
              x="205.57837"
              y="165.05074"
@@ -203,7 +321,8 @@
              height="180"
              rx="13.292828"
              id="rect9"
-             style="fill:#f7f3e8;stroke-width:1.28911" />
+             style="fill:#ffffff;stroke-width:1.28911"
+             inkscape:label="strich2" />
           <rect
              x="264.30133"
              y="165.05074"
@@ -211,7 +330,8 @@
              height="180"
              rx="13.292828"
              id="rect10"
-             style="fill:#f7f3e8;stroke-width:1.28911" />
+             style="fill:#ffffff;stroke-width:1.28911"
+             inkscape:label="strich3" />
           <rect
              x="323.02426"
              y="164.09581"
@@ -219,7 +339,8 @@
              height="180"
              rx="13.292828"
              id="rect11"
-             style="fill:#f7f3e8;stroke-width:1.28911" />
+             style="fill:#ffffff;stroke-width:1.28911"
+             inkscape:label="strich4" />
           <rect
              x="322.76987"
              y="-272.73608"
@@ -228,7 +349,8 @@
              rx="11.410151"
              transform="matrix(0.40984069,0.91215712,-0.90013168,0.4356179,0,0)"
              id="rect12"
-             style="fill:#f7f3e8;stroke-width:1.40929;stroke-dasharray:none" />
+             style="fill:#ffffff;stroke-width:1.40929;stroke-dasharray:none"
+             inkscape:label="Querstrich" />
         </g>
       </g>
     </g>
