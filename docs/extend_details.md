@@ -1,6 +1,6 @@
 # Tally Go! Coffee (Cupcounter)
 
-A small Rails 8.1 application for tracking coffee consumption, built with ERB, TailwindCSS and the Rails asset pipeline.  
+A small Rails 8.1 application for tracking coffee consumption, built with ERB, TailwindCSS and the Rails asset pipeline.
 Includes a custom navbar and a subtle tile-pattern background inspired by coffee beans.
 
 ---
@@ -237,13 +237,13 @@ bundle exec rubocop
 ```
 
 ---
-## backup sqlite db 
+## backup sqlite db
 
 first things first don't store the sqlite3 file in the container because with every restart the file is gone.
 so change the volume section in config/deploy.yml
 
 ```yaml
-volumes: 
+volumes:
   # Host-Storage (inkl. production.sqlite3) -> /rails/storage im Container
   - "/Users/<your account>/storage/local_s3/cupcounter:/rails/storage"
 ```
@@ -280,13 +280,23 @@ backup_logs: accessory logs backup
 
 ## debug database
 ```zsh
-kamal console 
+kamal console
 ```
 
 ```ruby
 Logbook.all.each do | lb |
   puts lb.cup_type+"::"+lb.id.to_s+":"+lb.created_at.to_s
 end
+```
+
+## cleanup test data
+
+```sh
+bin/rails console
+```
+```ruby
+today      = Time.zone.today
+Logbook.where(created_at: today.all_day).destroy_all
 ```
 
 ## ☕ Credits

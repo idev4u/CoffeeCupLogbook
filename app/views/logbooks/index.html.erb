@@ -19,7 +19,7 @@
 </div>
 
 <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-2 mb-8">
-  <div class="bg-white overflow-hidden shadow rounded-2xl">
+  <div class="bg-white overflow-visible shadow rounded-2xl">
     <div class="px-4 py-5 sm:p-6">
       <div class="flex items-center">
         <div class="flex-shrink-0 bg-purple-500 rounded-2xl p-3">
@@ -37,10 +37,14 @@
             <% end %>
         </div>
         <div class="ml-8 w-0 flex-1 relative">
-          <div id="coffee_burst" class="absolute left-0 right-0 -top-2 flex justify-center pointer-events-none z-10"></div>
           <dl>
-            <dt class="text-sm font-medium text-gray-500 truncate">
-              Total Coffee Cup
+            <dt class="text-sm font-medium text-gray-500 whitespace-nowrap">
+              Total Coffee
+              <span class="relative inline-block">
+                Cup
+                <div id="coffee_burst"
+                    class="absolute left-1/2 -top-2 translate-x-4 -translate-y-full pointer-events-none z-20"></div>
+              </span>
             </dt>
             <dd>
               <div class="text-7xl font-medium text-gray-900">
