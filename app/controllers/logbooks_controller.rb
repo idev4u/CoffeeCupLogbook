@@ -8,7 +8,6 @@ class LogbooksController < ApplicationController
     @package_logbook = Logbook.where(cup_type: "Plauen Gold Package")
 
     @package_logbook_sum = Logbook.where(cup_type: "Plauen Gold Package").sum(:amount)
-
   end
 
   def show
