@@ -1,23 +1,14 @@
 class LogbooksController < ApplicationController
   def index
     # @logbooks = Logbook.all
-    @logbooks = Logbook.where(cup_type: "Coffee")
+    # @logbooks = Logbook.where(cup_type: "Coffee")
+
     today      = Time.zone.today
     @today_cups     = Logbook.where(cup_type: "Coffee", created_at: today.all_day).sum(:amount)
     @package_logbook = Logbook.where(cup_type: "Plauen Gold Package")
-    # @logbook_sum = 0
-    # @logbooks.each do | logbook |
-    #   @logbook_sum=@logbook_sum+logbook.amount
-    # end
-    # @logbook_sum = Logbook.where(cup_type: "Coffee").sum(:amount)
 
-    puts "XXX: #{@package_logbook}"
-    @package_logbook_sum = 0
+    @package_logbook_sum = Logbook.where(cup_type: "Plauen Gold Package").sum(:amount)
 
-    @package_logbook.each do | package |
-      @package_logbook_sum=@package_logbook_sum+package.amount
-    end
-    puts "XXX: #{@package_logbook_sum}"
   end
 
   def show
@@ -30,14 +21,7 @@ class LogbooksController < ApplicationController
 
   def create
     @logbook = Logbook.new(logbook_params)
-    puts "XXX: #{@logbook}"
-    # if @logbook.save
-    #   # redrect to index fix this
-    #   # redirect_to @logbook
-    #   redirect_to root_path, notice: "Eintrag erfolgreich erstellt."
-    # else
-    #   render :new, status: :unprocessable_entity
-    # end
+
     if @logbook.save
       if params[:quick_add] == "1"
         # @logbook_sum = Logbook.where(cup_type: "Coffee").sum(:amount)
