@@ -2,12 +2,14 @@ class LogbooksController < ApplicationController
   def index
     # @logbooks = Logbook.all
     @logbooks = Logbook.where(cup_type: "Coffee")
+    today      = Time.zone.today
+    @today_cups     = Logbook.where(cup_type: "Coffee", created_at: today.all_day).sum(:amount)
     @package_logbook = Logbook.where(cup_type: "Plauen Gold Package")
     # @logbook_sum = 0
     # @logbooks.each do | logbook |
     #   @logbook_sum=@logbook_sum+logbook.amount
     # end
-    @logbook_sum = Logbook.where(cup_type: "Coffee").sum(:amount)
+    # @logbook_sum = Logbook.where(cup_type: "Coffee").sum(:amount)
 
     puts "XXX: #{@package_logbook}"
     @package_logbook_sum = 0
@@ -38,7 +40,9 @@ class LogbooksController < ApplicationController
     # end
     if @logbook.save
       if params[:quick_add] == "1"
-        @logbook_sum = Logbook.where(cup_type: "Coffee").sum(:amount)
+        # @logbook_sum = Logbook.where(cup_type: "Coffee").sum(:amount)
+        today = Time.zone.today
+        @today_cups = Logbook.where(cup_type: "Coffee", created_at: today.all_day).sum(:amount)
       end
       respond_to do |format|
       if params[:quick_add] == "1"
