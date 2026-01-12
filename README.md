@@ -76,6 +76,25 @@ accessories:
     cmd: "bash -lc 'while true; do /rails/bin/backup_sqlite; sleep 86400; done'"
 ```
 
+## Deployment (Kamal)
+
+### Proxy Reset (Host-conflicts)
+
+If the proxy returns 502 or there is a host conflict, an old proxy state is often stored.
+
+Reset on the host:
+
+```sh
+ssh apprunner@homeserver.local 'docker exec kamal-proxy rm -f /home/kamal-proxy/.config/kamal-proxy/kamal-proxy.state'
+ssh apprunner@homeserver.local 'docker restart kamal-proxy'
+```
+
+Then redeploy the affected service (in the respective repository):
+
+```sh
+bin/kamal deploy
+```
+
 ---
 
 ## Support
