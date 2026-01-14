@@ -1,29 +1,29 @@
 <% content_for :full_width, true %>
-<div class="min-h-screen bg-slate-50">
+<div class="min-h-screen">
   <!-- Top Bar -->
-  <header class="border-b border-slate-200 bg-white/70 backdrop-blur">
+  <header class="border-b border-[color:var(--glass-border)] bg-[color:var(--glass-bg)] backdrop-blur-xl">
     <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-6 flex items-center justify-between">
       <div>
-        <h1 class="text-xl font-semibold text-slate-900">
+        <h1 class="text-xl font-semibold text-[color:var(--text)]">
           Coffee Stats
         </h1>
-        <p class="mt-1 text-xs text-slate-500">
+        <p class="mt-1 text-xs text-[color:var(--text-subtle)]">
           How caffeinated have you been lately?
           <% if @first_entry_date %>
-            <span class="inline-block ml-1 rounded-full bg-slate-100 px-2 py-0.5 text-[11px] font-medium text-slate-500">
+            <span class="inline-block ml-1 rounded-full border border-[color:var(--glass-border)] bg-[color:var(--glass-weak)] px-2 py-0.5 text-[11px] font-medium text-[color:var(--text-subtle)]">
               since <%= @first_entry_date.to_fs(:long) %>
             </span>
           <% end %>
         </p>
       </div>
 
-      <div class="flex items-center gap-2 text-xs text-slate-500">
-        <span class="inline-flex items-center gap-1 rounded-full bg-emerald-50 px-5 py-0.5 font-medium text-emerald-700">
+      <div class="flex items-center gap-2 text-xs text-[color:var(--text-subtle)]">
+        <span class="inline-flex items-center gap-1 rounded-full border border-[color:var(--glass-border)] bg-[color:var(--glass-weak)] px-5 py-0.5 font-medium text-[color:var(--text-muted)]">
           <span class="text-[10px]">●</span>
           Tracking active
         </span>
         <%= link_to "Back to logbook", logbooks_path,
-              class: "rounded-full border border-slate-200 bg-white px-2 py-3 text-xs font-medium text-slate-700 hover:bg-slate-50" %>
+              class: "rounded-full border border-[color:var(--glass-border)] bg-[color:var(--glass-weak)] px-2 py-3 text-xs font-medium text-[color:var(--text-muted)] transition hover:bg-[color:var(--glass-strong)] hover:text-[color:var(--text)]" %>
       </div>
     </div>
   </header>
@@ -34,50 +34,50 @@
     <section>
       <div class="grid gap-3 sm:grid-cols-4">
         <!-- Today -->
-        <div class="rounded-2xl bg-white shadow-sm border border-slate-100 px-4 py-3 flex flex-col justify-between">
+        <div class="flex flex-col justify-between rounded-[var(--radius-sm)] border border-[color:var(--glass-border)] bg-[color:var(--glass-bg)] px-4 py-3 shadow-sm backdrop-blur-xl">
           <div class="flex items-center justify-between mb-2">
-            <span class="text-xs font-medium text-slate-500 uppercase tracking-wide">Today</span>
-            <span class="text-[10px] rounded-full bg-slate-100 px-2 py-0.5 text-slate-500">Day</span>
+            <span class="text-xs font-medium text-[color:var(--text-subtle)] uppercase tracking-wide">Today</span>
+            <span class="text-[10px] rounded-full border border-[color:var(--glass-border)] bg-[color:var(--glass-weak)] px-2 py-0.5 text-[color:var(--text-subtle)]">Day</span>
           </div>
           <div class="flex items-baseline gap-1">
-            <span class="text-2xl font-semibold text-slate-900"><%= @today %></span>
-            <span class="text-xs text-slate-400">cups</span>
+            <span class="text-2xl font-semibold text-[color:var(--text)]"><%= @today %></span>
+            <span class="text-xs text-[color:var(--text-subtle)]">cups</span>
           </div>
         </div>
 
         <!-- This Week -->
-        <div class="rounded-2xl bg-white shadow-sm border border-slate-100 px-4 py-3 flex flex-col justify-between">
+        <div class="flex flex-col justify-between rounded-[var(--radius-sm)] border border-[color:var(--glass-border)] bg-[color:var(--glass-bg)] px-4 py-3 shadow-sm backdrop-blur-xl">
           <div class="flex items-center justify-between mb-2">
-            <span class="text-xs font-medium text-slate-500 uppercase tracking-wide">This week</span>
-            <span class="text-[10px] rounded-full bg-slate-100 px-2 py-0.5 text-slate-500">Week</span>
+            <span class="text-xs font-medium text-[color:var(--text-subtle)] uppercase tracking-wide">This week</span>
+            <span class="text-[10px] rounded-full border border-[color:var(--glass-border)] bg-[color:var(--glass-weak)] px-2 py-0.5 text-[color:var(--text-subtle)]">Week</span>
           </div>
           <div class="flex items-baseline gap-1">
-            <span class="text-2xl font-semibold text-slate-900"><%= @this_week %></span>
-            <span class="text-xs text-slate-400">cups</span>
+            <span class="text-2xl font-semibold text-[color:var(--text)]"><%= @this_week %></span>
+            <span class="text-xs text-[color:var(--text-subtle)]">cups</span>
           </div>
         </div>
 
         <!-- This Month -->
-        <div class="rounded-2xl bg-white shadow-sm border border-slate-100 px-4 py-3 flex flex-col justify-between">
+        <div class="flex flex-col justify-between rounded-[var(--radius-sm)] border border-[color:var(--glass-border)] bg-[color:var(--glass-bg)] px-4 py-3 shadow-sm backdrop-blur-xl">
           <div class="flex items-center justify-between mb-2">
-            <span class="text-xs font-medium text-slate-500 uppercase tracking-wide">This month</span>
-            <span class="text-[10px] rounded-full bg-slate-100 px-2 py-0.5 text-slate-500">Month</span>
+            <span class="text-xs font-medium text-[color:var(--text-subtle)] uppercase tracking-wide">This month</span>
+            <span class="text-[10px] rounded-full border border-[color:var(--glass-border)] bg-[color:var(--glass-weak)] px-2 py-0.5 text-[color:var(--text-subtle)]">Month</span>
           </div>
           <div class="flex items-baseline gap-1">
-            <span class="text-2xl font-semibold text-slate-900"><%= @this_month %></span>
-            <span class="text-xs text-slate-400">cups</span>
+            <span class="text-2xl font-semibold text-[color:var(--text)]"><%= @this_month %></span>
+            <span class="text-xs text-[color:var(--text-subtle)]">cups</span>
           </div>
         </div>
 
         <!-- Total -->
-        <div class="rounded-2xl bg-purple-50 shadow-sm border border-purple-100 px-4 py-3 flex flex-col justify-between">
+        <div class="flex flex-col justify-between rounded-[var(--radius-sm)] border border-[color:var(--accent)] bg-[color:var(--accent-soft)] px-4 py-3 shadow-sm">
           <div class="flex items-center justify-between mb-2">
-            <span class="text-xs font-medium text-purple-700 uppercase tracking-wide">All time</span>
-            <span class="text-[10px] rounded-full bg-purple-100 px-2 py-0.5 text-purple-700">Legacy</span>
+            <span class="text-xs font-medium uppercase tracking-wide text-[color:var(--text)]">All time</span>
+            <span class="text-[10px] rounded-full border border-[color:var(--accent)] bg-[color:var(--accent-soft-strong)] px-2 py-0.5 text-[color:var(--text)]">Legacy</span>
           </div>
           <div class="flex items-baseline gap-1">
-            <span class="text-2xl font-semibold text-purple-800"><%= @total %></span>
-            <span class="text-xs text-purple-600">cups logged</span>
+            <span class="text-2xl font-semibold text-[color:var(--text)]"><%= @total %></span>
+            <span class="text-xs text-[color:var(--text-muted)]">cups logged</span>
           </div>
         </div>
       </div>
@@ -88,29 +88,29 @@
       <!-- Left: Charts -->
       <div class="lg:col-span-2 space-y-6">
         <!-- Cups per Day -->
-        <div class="rounded-2xl bg-white shadow-sm border border-slate-100 p-4">
+        <div class="rounded-[var(--radius-sm)] border border-[color:var(--glass-border)] bg-[color:var(--glass-bg)] p-4 shadow-sm backdrop-blur-xl">
           <div class="flex items-center justify-between mb-3">
             <div>
-              <h2 class="text-sm font-semibold text-slate-900">
+              <h2 class="text-sm font-semibold text-[color:var(--text)]">
                 Last 14 days
               </h2>
-              <p class="text-xs text-slate-500">
+              <p class="text-xs text-[color:var(--text-subtle)]">
                 Daily coffee activity
               </p>
             </div>
-            <span class="rounded-full bg-slate-50 px-2 py-1 text-[11px] text-slate-500">
+            <span class="rounded-full border border-[color:var(--glass-border)] bg-[color:var(--glass-weak)] px-2 py-1 text-[11px] text-[color:var(--text-subtle)]">
               Line chart
             </span>
           </div>
           <div>
             <%= line_chart @cups_per_day,
                 height: "224px", # entspricht h-56, optional
-                colors: ["#8B5CF6"], # Tailwind purple-500
+                colors: ["#b8b3ff"],
                 dataset: {
-                  backgroundColor: "rgba(139, 92, 246, 0.2)", # softer Fill
+                  backgroundColor: "rgba(184, 179, 255, 0.2)",
                   borderWidth: 2,
-                  pointBackgroundColor: "#8B5CF6",
-                  pointBorderColor: "#8B5CF6",
+                  pointBackgroundColor: "#b8b3ff",
+                  pointBorderColor: "#b8b3ff",
                   tension: 0.3
                 },
                 library: {
@@ -123,26 +123,26 @@
         </div>
 
         <!-- Cups per Month -->
-        <div class="rounded-2xl bg-white shadow-sm border border-slate-100 p-4">
+        <div class="rounded-[var(--radius-sm)] border border-[color:var(--glass-border)] bg-[color:var(--glass-bg)] p-4 shadow-sm backdrop-blur-xl">
           <div class="flex items-center justify-between mb-3">
             <div>
-              <h2 class="text-sm font-semibold text-slate-900">
+              <h2 class="text-sm font-semibold text-[color:var(--text)]">
                 Last 6 months
               </h2>
-              <p class="text-xs text-slate-500">
+              <p class="text-xs text-[color:var(--text-subtle)]">
                 Longer-term trends
               </p>
             </div>
-            <span class="rounded-full bg-slate-50 px-2 py-1 text-[11px] text-slate-500">
+            <span class="rounded-full border border-[color:var(--glass-border)] bg-[color:var(--glass-weak)] px-2 py-1 text-[11px] text-[color:var(--text-subtle)]">
               Bars
             </span>
           </div>
           <div>
             <%= column_chart @cups_per_month,
                   height: "224px",
-                  colors: ["#A78BFA"], # purple-400
+                  colors: ["#b8b3ff"],
                   dataset: {
-                    borderColor: "#8B5CF6", # purple-500
+                    borderColor: "#9f99f2",
                     borderWidth: 1
                   },
                   library: {
@@ -152,26 +152,26 @@
                   } %>
           </div>
         </div>
-        <div class="rounded-2xl bg-white shadow-sm border border-slate-100 p-4">
+        <div class="rounded-[var(--radius-sm)] border border-[color:var(--glass-border)] bg-[color:var(--glass-bg)] p-4 shadow-sm backdrop-blur-xl">
           <div class="flex items-center justify-between mb-3">
             <div>
-              <h2 class="text-sm font-semibold text-slate-900">
+              <h2 class="text-sm font-semibold text-[color:var(--text)]">
                 Avg cups by package size
               </h2>
-              <p class="text-xs text-slate-500">
+              <p class="text-xs text-[color:var(--text-subtle)]">
                 250g vs. 500g comparison
               </p>
             </div>
-            <span class="rounded-full bg-slate-50 px-2 py-1 text-[11px] text-slate-500">
+            <span class="rounded-full border border-[color:var(--glass-border)] bg-[color:var(--glass-weak)] px-2 py-1 text-[11px] text-[color:var(--text-subtle)]">
               Bars
             </span>
           </div>
   
           <%= column_chart @avg_cups_by_size_chart,
                 height: "224px",
-                colors: ["#A78BFA"], # purple-400
+                colors: ["#b8b3ff"],
                 dataset: {
-                  borderColor: "#8B5CF6", # purple-500
+                  borderColor: "#9f99f2",
                   borderWidth: 1
                 },
                 library: {
@@ -182,26 +182,26 @@
         </div>
         <!-- Cups per Package (Chart) -->
         <% if @cups_per_package_chart.present? %>
-          <div class="rounded-2xl bg-white shadow-sm border border-slate-100 p-4">
+          <div class="rounded-[var(--radius-sm)] border border-[color:var(--glass-border)] bg-[color:var(--glass-bg)] p-4 shadow-sm backdrop-blur-xl">
             <div class="flex items-center justify-between mb-3">
               <div>
-                <h2 class="text-sm font-semibold text-slate-900">
+                <h2 class="text-sm font-semibold text-[color:var(--text)]">
                   Cups per package
                 </h2>
-                <p class="text-xs text-slate-500">
+                <p class="text-xs text-[color:var(--text-subtle)]">
                   Only fully consumed bags (open one is ignored)
                 </p>
               </div>
-              <span class="rounded-full bg-slate-50 px-2 py-1 text-[11px] text-slate-500">
+              <span class="rounded-full border border-[color:var(--glass-border)] bg-[color:var(--glass-weak)] px-2 py-1 text-[11px] text-[color:var(--text-subtle)]">
                 Bars
               </span>
             </div>
 
             <%= column_chart @cups_per_package_chart,
                   height: "224px",
-                  colors: ["#A78BFA"], # purple-400
+                  colors: ["#b8b3ff"],
                   dataset: {
-                    borderColor: "#8B5CF6", # purple-500
+                    borderColor: "#9f99f2",
                     borderWidth: 1
                   },
                   library: {
@@ -219,13 +219,13 @@
       <!-- Right: Types & little insights -->
       <div class="space-y-6">
         <!-- Cups by Type -->
-        <div class="rounded-2xl bg-white shadow-sm border border-slate-100 p-4">
+        <div class="rounded-[var(--radius-sm)] border border-[color:var(--glass-border)] bg-[color:var(--glass-bg)] p-4 shadow-sm backdrop-blur-xl">
           <div class="flex items-center justify-between mb-3">
             <div>
-              <h2 class="text-sm font-semibold text-slate-900">
+              <h2 class="text-sm font-semibold text-[color:var(--text)]">
                 By type
               </h2>
-              <p class="text-xs text-slate-500">
+              <p class="text-xs text-[color:var(--text-subtle)]">
                 What you actually drink
               </p>
             </div>
@@ -234,23 +234,23 @@
           <% if @cups_by_type.present? %>
             <ul class="space-y-2">
               <% @cups_by_type.each_with_index do |(type, count), index| %>
-                <li class="flex items-center justify-between rounded-xl border border-slate-100 bg-slate-50/60 px-3 py-2">
+                <li class="flex items-center justify-between rounded-[var(--radius-md)] border border-[color:var(--glass-border)] bg-[color:var(--glass-weak)] px-3 py-2">
                   <div class="flex items-center gap-2">
-                    <span class="text-[10px] inline-flex h-5 w-5 items-center justify-center rounded-full bg-white border border-slate-200 text-slate-500">
+                    <span class="text-[10px] inline-flex h-5 w-5 items-center justify-center rounded-full border border-[color:var(--glass-border)] bg-[color:var(--glass-weak)] text-[color:var(--text-subtle)]">
                       <%= index + 1 %>
                     </span>
-                    <span class="text-xs font-medium text-slate-800">
+                    <span class="text-xs font-medium text-[color:var(--text)]">
                       <%= type.presence || "Unknown" %>
                     </span>
                   </div>
-                  <span class="text-xs font-semibold text-slate-900">
+                  <span class="text-xs font-semibold text-[color:var(--text)]">
                     <%= count %>
                   </span>
                 </li>
               <% end %>
             </ul>
           <% else %>
-            <p class="text-xs text-slate-400">
+            <p class="text-xs text-[color:var(--text-subtle)]">
               No coffee types yet. Go get a cup. ☕
             </p>
           <% end %>
@@ -258,13 +258,13 @@
 
     <!-- Cups per Package (Liste + Durchschnitt) -->
       <% if @packages_detailed.present? %>
-        <div class="rounded-2xl bg-white shadow-sm border border-slate-100 p-4">
+        <div class="rounded-[var(--radius-sm)] border border-[color:var(--glass-border)] bg-[color:var(--glass-bg)] p-4 shadow-sm backdrop-blur-xl">
           <div class="flex items-center justify-between mb-3">
             <div>
-              <h2 class="text-sm font-semibold text-slate-900">
+              <h2 class="text-sm font-semibold text-[color:var(--text)]">
                 Cups per package
               </h2>
-              <p class="text-xs text-slate-500">
+              <p class="text-xs text-[color:var(--text-subtle)]">
                 How far each bag gets you
               </p>
             </div>
@@ -272,17 +272,17 @@
 
         <ul class="space-y-2">
           <% @packages_detailed.each do |pack| %>
-            <li class="flex items-center justify-between rounded-xl border border-slate-100 bg-slate-50/60 px-3 py-2">
+            <li class="flex items-center justify-between rounded-[var(--radius-md)] border border-[color:var(--glass-border)] bg-[color:var(--glass-weak)] px-3 py-2">
               <div class="flex flex-col">
-                <span class="text-xs font-medium text-slate-800">
+                <span class="text-xs font-medium text-[color:var(--text)]">
                   <%= pack[:cup_type] %> — <%= pack[:size] %>g
                 </span>
-                <span class="text-[11px] text-slate-500">
+                <span class="text-[11px] text-[color:var(--text-subtle)]">
                   opened <%= I18n.l(pack[:opened_at].to_date) %>
                 </span>
               </div>
               <div class="text-right">
-                <span class="text-xs font-semibold text-slate-900">
+                <span class="text-xs font-semibold text-[color:var(--text)]">
                   <%= pack[:coffees] %> cups
                 </span>
               </div>
@@ -291,17 +291,17 @@
         </ul>
 
         <% if @avg_cups_by_size.present? %>
-          <div class="mt-3 pt-3 border-t border-slate-200">
-            <p class="text-[11px] font-medium text-slate-500 mb-1">
+          <div class="mt-3 pt-3 border-t border-[color:var(--glass-border)]">
+            <p class="text-[11px] font-medium text-[color:var(--text-subtle)] mb-1">
               Averages by size
             </p>
             <div class="space-y-1">
               <% @avg_cups_by_size.each do |size, data| %>
-                <div class="flex items-center justify-between text-[11px] text-slate-500">
+                <div class="flex items-center justify-between text-[11px] text-[color:var(--text-subtle)]">
                   <span><%= size %>g</span>
                   <span>
                     <%= data[:avg_cups].round(1) %> cups
-                    <span class="text-[10px] text-slate-400">
+                    <span class="text-[10px] text-[color:var(--text-subtle)]">
                       · <%= data[:packages] %> packages
                     </span>
                   </span>
@@ -310,25 +310,25 @@
             </div>
           </div>
           <% else %>
-          <p class="text-xs text-slate-400">
+          <p class="text-xs text-[color:var(--text-subtle)]">
             No packages tracked yet. Log your next bag opening as a package with size. ☕📦
           </p>
           <% end %>
       </div>
     <% end %>
         <!-- Little note / flavor card -->
-        <div class="rounded-2xl bg-slate-900 text-slate-50 p-4 shadow-sm">
-          <p class="text-xs font-medium uppercase tracking-wide text-slate-400 mb-1">
+        <div class="rounded-[var(--radius-sm)] border border-[color:var(--accent)] bg-[color:var(--accent-soft)] p-4 shadow-sm">
+          <p class="text-xs font-medium uppercase tracking-wide text-[color:var(--text-subtle)] mb-1">
             Tiny observation
           </p>
-          <p class="text-sm leading-relaxed">
+          <p class="text-sm leading-relaxed text-[color:var(--text)]">
             This page isn't about judging your caffeine habits.
             It's just here to whisper:
             <span class="font-semibold">
               “Hey, this is who you’ve been lately.”
             </span>
           </p>
-          <p class="mt-3 text-[11px] text-slate-400">
+          <p class="mt-3 text-[11px] text-[color:var(--text-subtle)]">
             Check in once in a while. Or ignore it completely. Both are fine.
           </p>
         </div>

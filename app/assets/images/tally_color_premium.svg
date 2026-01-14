@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="512"
+   height="512"
+   viewBox="0 0 512 512"
+   version="1.1"
+   id="svg12"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <defs
+     id="defs12">
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath12">
+      <use
+         href="#hex-inner-shape"
+         id="use12" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath13">
+      <use
+         href="#hex-inner-shape"
+         id="use13" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath14">
+      <use
+         href="#hex-inner-shape"
+         id="use14" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath15">
+      <use
+         href="#hex-inner-shape"
+         id="use15" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath16">
+      <use
+         href="#hex-inner-shape"
+         id="use16" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath17">
+      <use
+         href="#hex-inner-shape"
+         id="use17" />
+    </clipPath>
+  </defs>
+  <title
+     id="title1">TALLY GO! Hexagon Badge Premium</title>
+  <!-- Farben: ruhiges, leichtes Lila -->
+  <!--
+    Outer Border: #3A335C
+    Stripes (top -> bottom):
+      #F2EFFA
+      #E3DDF4
+      #D0C6EE
+      #BCB0E4
+      #A697D8
+      #8F7FC8
+    Tally Marks: #F7F4FB
+  -->
+  <rect
+     x="0"
+     y="0"
+     width="512"
+     height="512"
+     fill="none"
+     id="rect1"
+     style="opacity:1" />
+  <g
+     id="badge">
+    <defs
+       id="defs1">
+      <polygon
+         id="hex-inner-shape"
+         points="           256,48           440,152           440,360           256,464           72,360           72,152         " />
+    </defs>
+    <g
+       id="layer3">
+      <path
+         id="hex-outer"
+         d="M 268.99278,31.495837 451.00722,136.50416 A 25.971151,25.971151 59.99082 0 1 464,159 v 194 a 25.971151,25.971151 120.00918 0 1 -12.99278,22.49584 L 268.99278,480.50416 a 26,26 180 0 1 -25.98556,0 L 60.992784,375.49584 A 25.971151,25.971151 59.99082 0 1 48,353 V 159 A 25.971151,25.971151 120.00918 0 1 60.992784,136.50416 L 243.00722,31.495837 a 26,26 0 0 1 25.98556,0 z"
+         style="fill:#3a335c;stroke-width:1.4;stroke-dasharray:none;paint-order:markers fill stroke" />
+      <path
+         id="hex-inner-fill"
+         d="M 72,345 V 167 A 25.708493,25.708493 120.26206 0 0 85.058443,144.61914 L 242.94156,55.380859 a 26.538462,26.538462 0 0 0 26.11688,0 L 426.94156,144.61914 A 25.708493,25.708493 59.737945 0 0 440,167 v 178 a 25.708493,25.708493 120.26206 0 0 -13.05844,22.38086 l -157.88312,89.23828 a 26.538462,26.538462 0 0 0 -26.11688,0 L 85.058443,367.38086 A 25.708493,25.708493 59.737945 0 0 72,345 Z"
+         style="display:inline;fill:none;paint-order:normal" />
+      <g
+         id="layer2">
+        <path
+           x="72"
+           y="48"
+           width="368"
+           height="69"
+           fill="#f2effa"
+           id="rect2"
+           clip-path="url(#clipPath17)"
+           style="fill:#f2effa"
+           d="m 72,48 h 368 v 69 H 72 Z"
+           ry="0" />
+        <rect
+           x="72"
+           y="117"
+           width="368"
+           height="69"
+           fill="#e3ddf4"
+           id="rect3"
+           clip-path="url(#clipPath16)"
+           style="fill:#e3ddf4" />
+        <rect
+           x="72"
+           y="186"
+           width="368"
+           height="69"
+           fill="#d0c6ee"
+           id="rect4"
+           clip-path="url(#clipPath15)"
+           style="fill:#d0c6ee" />
+        <rect
+           x="72"
+           y="255"
+           width="368"
+           height="69"
+           fill="#bcb0e4"
+           id="rect5"
+           clip-path="url(#clipPath14)"
+           style="fill:#bcb0e4" />
+        <rect
+           x="72"
+           y="324"
+           width="368"
+           height="69"
+           fill="#a697d8"
+           id="rect6"
+           clip-path="url(#clipPath13)"
+           style="fill:#a697d8" />
+        <rect
+           x="72"
+           y="393"
+           width="368"
+           height="69"
+           fill="#8f7fc8"
+           id="rect7"
+           clip-path="url(#clipPath12)"
+           style="fill:#8f7fc8" />
+        <g
+           id="layer1">
+          <rect
+             x="146.85542"
+             y="164.09581"
+             width="39.87849"
+             height="180"
+             rx="13.292828"
+             id="rect8"
+             style="fill:#f7f4fb;stroke-width:1.28911" />
+          <rect
+             x="205.57837"
+             y="165.05074"
+             width="39.87849"
+             height="180"
+             rx="13.292828"
+             id="rect9"
+             style="fill:#f7f4fb;stroke-width:1.28911" />
+          <rect
+             x="264.30133"
+             y="165.05074"
+             width="39.87849"
+             height="180"
+             rx="13.292828"
+             id="rect10"
+             style="fill:#f7f4fb;stroke-width:1.28911" />
+          <rect
+             x="323.02426"
+             y="164.09581"
+             width="39.87849"
+             height="180"
+             rx="13.292828"
+             id="rect11"
+             style="fill:#f7f4fb;stroke-width:1.28911" />
+          <rect
+             x="322.76987"
+             y="-272.73608"
+             width="34.23"
+             height="292.45377"
+             rx="11.410151"
+             transform="matrix(0.40984069,0.91215712,-0.90013168,0.4356179,0,0)"
+             id="rect12"
+             style="fill:#f7f4fb;stroke-width:1.40929;stroke-dasharray:none" />
+        </g>
+      </g>
+    </g>
+  </g>
+  <metadata
+     id="metadata25">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:title>TALLY GO! Hexagon Badge Premium</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+</svg>

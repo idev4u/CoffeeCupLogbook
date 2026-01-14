@@ -1,55 +1,76 @@
 /*
- * This is a manifest file that'll be compiled into application.css.
- *
- * With Propshaft, assets are served efficiently without preprocessing steps. You can still include
- * application-wide styles in this file, but keep in mind that CSS precedence will follow the standard
- * cascading order, meaning styles declared later in the document or manifest will override earlier ones,
- * depending on specificity.
- *
- * Consider organizing styles into separate files for maintainability.
+ * App-wide base styles and theme tokens.
+ * Tailwind classes live in views; this file only defines shared variables.
  */
-/* app/assets/stylesheets/application.css */
+:root {
+  color-scheme: light;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 34px;
+  --radius-pill: 999px;
+  --app-bg:
+    radial-gradient(1200px 700px at 0% -10%, rgba(162, 155, 254, 0.12), transparent 60%),
+    radial-gradient(900px 600px at 100% 0%, rgba(255, 255, 255, 0.7), transparent 55%),
+    linear-gradient(180deg, #ffffff 0%, #f6f6f8 55%, #edeef2 100%);
+  --text: #0b0d12;
+  --text-muted: #5d6472;
+  --text-subtle: #9aa1ad;
+  --text-inverse: #ffffff;
+  --text-on-accent: #0b0d12;
+  --glass-bg: rgba(255, 255, 255, 0.62);
+  --glass-strong: rgba(255, 255, 255, 0.85);
+  --glass-weak: rgba(255, 255, 255, 0.4);
+  --glass-border: rgba(255, 255, 255, 0.42);
+  --glass-border-strong: rgba(255, 255, 255, 0.6);
+  --border: rgba(15, 23, 42, 0.12);
+  --border-strong: rgba(15, 23, 42, 0.18);
+  --accent: #b8b3ff;
+  --accent-strong: #9f99f2;
+  --accent-soft: rgba(184, 179, 255, 0.2);
+  --accent-soft-strong: rgba(184, 179, 255, 0.35);
+  --error-bg: rgba(239, 68, 68, 0.12);
+  --error-text: #dc2626;
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --app-bg:
+    radial-gradient(900px 600px at 0% -10%, rgba(168, 163, 255, 0.18), transparent 60%),
+    radial-gradient(700px 520px at 100% 0%, rgba(9, 11, 17, 0.88), transparent 62%),
+    linear-gradient(180deg, #090b10 0%, #0b0f18 55%, #0e1322 100%);
+  --text: #f4f6fa;
+  --text-muted: #b1b7c4;
+  --text-subtle: #8c95a6;
+  --text-inverse: #0b0d12;
+  --text-on-accent: #0b0d12;
+  --glass-bg: rgba(13, 16, 23, 0.58);
+  --glass-strong: rgba(255, 255, 255, 0.16);
+  --glass-weak: rgba(255, 255, 255, 0.08);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --glass-border-strong: rgba(255, 255, 255, 0.22);
+  --border: rgba(255, 255, 255, 0.12);
+  --border-strong: rgba(255, 255, 255, 0.2);
+  --accent: #cfcaff;
+  --accent-strong: #b4aef5;
+  --accent-soft: rgba(207, 202, 255, 0.18);
+  --accent-soft-strong: rgba(207, 202, 255, 0.3);
+  --error-bg: rgba(248, 113, 113, 0.18);
+  --error-text: #fca5a5;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  padding: 1rem;
-}
-
-nav {
-  justify-content: flex-end;
-  display: flex;
-  font-size: 0.875em;
-  gap: 0.5rem;
-  max-width: 1024px;
-  margin: 0 auto;
-  padding: 1rem;
-}
-
-nav a {
-  display: inline-block;
-}
-
-main {
-  max-width: 1024px;
-  margin: 0 auto;
-}
-
-.alert,
-.error {
-  color: red;
-}
-
-.notice {
-  color: green;
-}
-
-section.logbook {
-  display: flex;
-  gap: 1rem;
-  flex-direction: row;
-}
-
-section.logbook img {
-  border-radius: 8px;
-  flex-basis: 50%;
-  max-width: 50%;
+  margin: 0;
+  min-height: 100%;
+  font-family: "SF Pro Display", "SF Pro Text", "Inter", -apple-system,
+    system-ui, "Segoe UI", sans-serif;
+  background: var(--app-bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }

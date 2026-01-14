@@ -8,11 +8,11 @@ export default class extends Controller {
       this.element.classList.add("opacity-100", "scale-100", "-translate-y-1")
     })
 
-    // Float up + fade out
+    // Soft float for a premium feel.
     this.floatTimer = setTimeout(() => {
       this.element.classList.remove("opacity-100", "scale-100", "-translate-y-1")
-      this.element.classList.add("opacity-0", "scale-90", "-translate-y-10", "rotate-3")
-    }, 650)
+      this.element.classList.add("opacity-0", "scale-95", "-translate-y-6", "rotate-2")
+    }, 700)
 
     // Remove from DOM
     this.removeTimer = setTimeout(() => {

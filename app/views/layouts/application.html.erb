@@ -26,25 +26,21 @@
 
   <!-- body class="bg-gray-50" -->
 <!-- body class="h-full relative m-0" -->
-<body class="min-h-screen relative">
+<body class="min-h-screen relative text-[color:var(--text)]">
 
   <%= render "layouts/navbar" %>
-  <div
-    class="absolute inset-0 bg-repeat bg-[length:260px] opacity-30 -z-10"
-    style="background-image: url('<%= asset_path("coffee_pattern.png") %>');">
-  </div>
 
   <!-- main class="relative z-10 container mx-auto pt-20 px-5"-->
     <% if content_for?(:full_width) %>
     <!-- Full-width page (e.g. stats dashboard) -->
-    <main class="relative z-10 pt-20">
+    <main class="relative z-10 pt-24">
       <%= yield %>
     </main>
     <% else %>
       <!-- Normal pages with centered container -->
-      <main class="relative z-10 container mx-auto pt-20 px-5">
+      <main class="relative z-10 container mx-auto pt-24 px-5">
         <% if flash[:notice] %>
-          <p class="mb-4 rounded bg-green-100 px-4 py-2 text-sm text-green-800">
+          <p class="mb-4 rounded-[var(--radius-sm)] border border-[color:var(--accent-strong)] bg-[color:var(--accent-soft)] px-4 py-2 text-sm text-[color:var(--text)] backdrop-blur">
             <%= flash[:notice] %>
           </p>
         <% end %>
@@ -53,7 +49,7 @@
     <% end %>
   </main>
   <!-- Toast-Container -->
-  <div id="toasts" class="fixed top-4 right-4 z-50 space-y-2"></div>
+  <div id="toasts" class="fixed top-24 right-4 z-50 space-y-2"></div>
 </body>
 
 

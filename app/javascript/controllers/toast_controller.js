@@ -12,11 +12,11 @@ export default class extends Controller {
   }
 
   dismiss() {
-    // Flug nach rechts + leicht nach oben, Rotation
+    // Soft glide for a more premium feel.
       this.element.classList.add(
-        "translate-x-16",
-        "-translate-y-3",
-        "rotate-6",
+        "translate-x-10",
+        "-translate-y-2",
+        "rotate-2",
         "opacity-0"
       )
 
