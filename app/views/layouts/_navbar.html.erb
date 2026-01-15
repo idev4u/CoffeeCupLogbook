@@ -24,7 +24,7 @@
               class: "rounded-full border px-4 py-2 text-xs font-medium transition " \
                      "#{current_page?(root_path) ? 'bg-[color:var(--glass-strong)] text-[color:var(--text)] border-[color:var(--glass-border-strong)]' : 'border-transparent text-[color:var(--text-muted)] hover:text-[color:var(--text)] hover:bg-[color:var(--glass-weak)]'}" %>
 
-          <%= link_to "Paket hinzufuegen",
+          <%= link_to "Paket öffnen",
               new_logbook_path,
               class: "rounded-full border px-4 py-2 text-xs font-medium transition " \
                      "#{current_page?(new_logbook_path) ? 'bg-[color:var(--glass-strong)] text-[color:var(--text)] border-[color:var(--glass-border-strong)]' : 'border-transparent text-[color:var(--text-muted)] hover:text-[color:var(--text)] hover:bg-[color:var(--glass-weak)]'}" %>
@@ -80,6 +80,11 @@
           root_path,
           class: "block rounded-full px-3 py-2 text-sm font-medium " \
                  "#{current_page?(root_path) ? 'bg-[color:var(--glass-strong)] text-[color:var(--text)]' : 'text-[color:var(--text-muted)] hover:bg-[color:var(--glass-weak)] hover:text-[color:var(--text)]'}" %>
+
+      <%= link_to "Paket öffnen",
+          new_logbook_path,
+          class: "landscape-only block rounded-full px-3 py-2 text-sm font-medium " \
+                 "#{current_page?(new_logbook_path) ? 'bg-[color:var(--glass-strong)] text-[color:var(--text)]' : 'text-[color:var(--text-muted)] hover:bg-[color:var(--glass-weak)] hover:text-[color:var(--text)]'}" %>
 
       <%= link_to "Stats",
           coffee_stats_path,
