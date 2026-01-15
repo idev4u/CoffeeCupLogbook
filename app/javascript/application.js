@@ -2,7 +2,8 @@
 import "@hotwired/turbo-rails"
 import "controllers"
 
-const storageKey = "theme"
+const themeKey = "theme"
+const textSizeKey = "textSize"
 const root = document.documentElement
 
 const updateThemeUI = (isDark) => {
@@ -36,12 +37,54 @@ const bindThemeToggles = () => {
     toggle.dataset.themeBound = "true"
     toggle.addEventListener("change", () => {
       const next = toggle.checked ? "dark" : "light"
-      localStorage.setItem(storageKey, next)
+      localStorage.setItem(themeKey, next)
       applyTheme(next)
     })
   })
-  const stored = localStorage.getItem(storageKey) || "light"
+  const stored = localStorage.getItem(themeKey) || "light"
   applyTheme(stored)
 }
 
-document.addEventListener("turbo:load", bindThemeToggles)
+const updateTextUI = (isLarge) => {
+  document.querySelectorAll("[data-text-toggle]").forEach((toggle) => {
+    toggle.checked = isLarge
+  })
+  document.querySelectorAll("[data-text-knob]").forEach((knob) => {
+    knob.classList.toggle("translate-x-5", isLarge)
+  })
+  document.querySelectorAll("[data-text-label]").forEach((label) => {
+    label.textContent = isLarge ? "Groß" : "Normal"
+  })
+}
+
+const applyTextSize = (size) => {
+  const isLarge = size === "large"
+  if (isLarge) {
+    root.setAttribute("data-text-size", "large")
+  } else {
+    root.removeAttribute("data-text-size")
+  }
+  updateTextUI(isLarge)
+}
+
+const bindTextToggles = () => {
+  const toggles = document.querySelectorAll("[data-text-toggle]")
+  toggles.forEach((toggle) => {
+    if (toggle.dataset.textBound === "true") {
+      return
+    }
+    toggle.dataset.textBound = "true"
+    toggle.addEventListener("change", () => {
+      const next = toggle.checked ? "large" : "normal"
+      localStorage.setItem(textSizeKey, next)
+      applyTextSize(next)
+    })
+  })
+  const stored = localStorage.getItem(textSizeKey) || "normal"
+  applyTextSize(stored)
+}
+
+document.addEventListener("turbo:load", () => {
+  bindThemeToggles()
+  bindTextToggles()
+})

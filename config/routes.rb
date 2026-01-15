@@ -16,4 +16,5 @@ Rails.application.routes.draw do
   root "logbooks#index"
   resources :logbooks
   get "coffee_stats", to: "statistics#index", as: :coffee_stats
+  get "settings", to: "settings#show", as: :settings
 end

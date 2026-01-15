@@ -1,0 +1,46 @@
+<div class="mx-auto max-w-3xl space-y-6">
+  <section class="rounded-[var(--radius-sm)] border border-[color:var(--glass-border)] bg-[color:var(--glass-bg)] px-6 py-6 shadow-lg backdrop-blur-xl">
+    <h1 class="text-2xl font-semibold text-[color:var(--text)]">Einstellungen</h1>
+    <p class="mt-1 text-sm text-[color:var(--text-muted)]">
+      Passe Darstellung und Lesbarkeit an dein Gerät an.
+    </p>
+  </section>
+
+  <section class="rounded-[var(--radius-sm)] border border-[color:var(--glass-border)] bg-[color:var(--glass-bg)] px-6 py-5 shadow-lg backdrop-blur-xl">
+    <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+      <div>
+        <p class="text-sm font-semibold text-[color:var(--text)]">Textgröße</p>
+        <p class="text-xs text-[color:var(--text-muted)]">
+          Normal oder Groß für bessere Lesbarkeit.
+        </p>
+      </div>
+      <label class="flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] text-[color:var(--text-subtle)]">
+        <span>Text</span>
+        <input type="checkbox" class="sr-only" data-text-toggle>
+        <span class="relative inline-flex h-7 w-12 items-center rounded-full border border-[color:var(--glass-border)] bg-[color:var(--glass-weak)] p-1">
+          <span class="h-5 w-5 rounded-full bg-[color:var(--glass-strong)] shadow-sm transition-transform duration-200" data-text-knob></span>
+        </span>
+        <span class="text-[11px] normal-case tracking-normal text-[color:var(--text-muted)]" data-text-label>Normal</span>
+      </label>
+    </div>
+  </section>
+
+  <section class="rounded-[var(--radius-sm)] border border-[color:var(--glass-border)] bg-[color:var(--glass-bg)] px-6 py-5 shadow-lg backdrop-blur-xl">
+    <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+      <div>
+        <p class="text-sm font-semibold text-[color:var(--text)]">Theme</p>
+        <p class="text-xs text-[color:var(--text-muted)]">
+          Light oder Dark für Tages- und Abendlicht.
+        </p>
+      </div>
+      <label class="flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] text-[color:var(--text-subtle)]">
+        <span>Theme</span>
+        <input type="checkbox" class="sr-only" data-theme-toggle>
+        <span class="relative inline-flex h-7 w-12 items-center rounded-full border border-[color:var(--glass-border)] bg-[color:var(--glass-weak)] p-1">
+          <span class="h-5 w-5 rounded-full bg-[color:var(--glass-strong)] shadow-sm transition-transform duration-200" data-theme-knob></span>
+        </span>
+        <span class="text-[11px] normal-case tracking-normal text-[color:var(--text-muted)]" data-theme-label>Light</span>
+      </label>
+    </div>
+  </section>
+</div>

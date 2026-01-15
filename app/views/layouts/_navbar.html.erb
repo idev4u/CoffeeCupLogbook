@@ -34,26 +34,15 @@
               coffee_stats_path,
               class: "rounded-full border px-4 py-2 text-xs font-medium transition " \
                      "#{current_page?(coffee_stats_path) ? 'bg-[color:var(--glass-strong)] text-[color:var(--text)] border-[color:var(--glass-border-strong)]' : 'border-transparent text-[color:var(--text-muted)] hover:text-[color:var(--text)] hover:bg-[color:var(--glass-weak)]'}" %>
-        </div>
 
-        <label class="hidden md:flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] text-[color:var(--text-subtle)]">
-          <span>Theme</span>
-          <input type="checkbox" class="sr-only" data-theme-toggle>
-          <span class="relative inline-flex h-7 w-12 items-center rounded-full border border-[color:var(--glass-border)] bg-[color:var(--glass-weak)] p-1">
-            <span class="h-5 w-5 rounded-full bg-[color:var(--glass-strong)] shadow-sm transition-transform duration-200" data-theme-knob></span>
-          </span>
-          <span class="text-[11px] normal-case tracking-normal text-[color:var(--text-muted)]" data-theme-label>Light</span>
+          <%= link_to "Einstellungen",
+              settings_path,
+              class: "rounded-full border px-4 py-2 text-xs font-medium transition " \
+                     "#{current_page?(settings_path) ? 'bg-[color:var(--glass-strong)] text-[color:var(--text)] border-[color:var(--glass-border-strong)]' : 'border-transparent text-[color:var(--text-muted)] hover:text-[color:var(--text)] hover:bg-[color:var(--glass-weak)]'}" %>
         </div>
 
         <!-- Mobile: Burger-Menü -->
         <div class="flex items-center gap-2 md:hidden">
-          <label class="inline-flex items-center">
-            <span class="sr-only">Toggle theme</span>
-            <input type="checkbox" class="sr-only" data-theme-toggle>
-            <span class="relative inline-flex h-7 w-12 items-center rounded-full border border-[color:var(--glass-border)] bg-[color:var(--glass-weak)] p-1">
-              <span class="h-5 w-5 rounded-full bg-[color:var(--glass-strong)] shadow-sm transition-transform duration-200" data-theme-knob></span>
-            </span>
-          </label>
           <button 
             type="button"
             class="inline-flex items-center justify-center rounded-full p-2 text-[color:var(--text-muted)] hover:bg-[color:var(--glass-weak)] focus:outline-none focus:ring-2 focus:ring-[color:var(--accent)]"
@@ -90,6 +79,11 @@
           coffee_stats_path,
           class: "block rounded-full px-3 py-2 text-sm font-medium " \
                  "#{current_page?(coffee_stats_path) ? 'bg-[color:var(--glass-strong)] text-[color:var(--text)]' : 'text-[color:var(--text-muted)] hover:bg-[color:var(--glass-weak)] hover:text-[color:var(--text)]'}" %>
+
+      <%= link_to "Einstellungen",
+          settings_path,
+          class: "block rounded-full px-3 py-2 text-sm font-medium " \
+                 "#{current_page?(settings_path) ? 'bg-[color:var(--glass-strong)] text-[color:var(--text)]' : 'text-[color:var(--text-muted)] hover:bg-[color:var(--glass-weak)] hover:text-[color:var(--text)]'}" %>
     </div>
   </div>
 </nav>

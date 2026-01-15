@@ -32,6 +32,10 @@
   --error-text: #dc2626;
 }
 
+html[data-text-size="large"] {
+  font-size: 120%;
+}
+
 html[data-theme="dark"] {
   color-scheme: dark;
   --app-bg:
