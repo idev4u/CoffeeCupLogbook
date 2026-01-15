@@ -14,13 +14,13 @@
           Normal oder Groß für bessere Lesbarkeit.
         </p>
       </div>
-      <label class="flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] text-[color:var(--text-subtle)]">
-        <span>Text</span>
+      <label class="grid grid-cols-[64px_56px_64px] items-center gap-3 text-[10px] uppercase tracking-[0.2em] text-[color:var(--text-subtle)]">
+        <span class="leading-none text-left">Text</span>
         <input type="checkbox" class="sr-only" data-text-toggle>
-        <span class="relative inline-flex h-7 w-12 items-center rounded-full border border-[color:var(--glass-border)] bg-[color:var(--glass-weak)] p-1">
-          <span class="h-5 w-5 rounded-full bg-[color:var(--glass-strong)] shadow-sm transition-transform duration-200" data-text-knob></span>
+        <span class="retro-switch relative inline-flex h-7 w-12 items-center rounded-full border p-1 justify-self-center" data-text-switch>
+          <span class="retro-knob h-5 w-5 rounded-full shadow-sm transition-transform duration-200" data-text-knob></span>
         </span>
-        <span class="text-[11px] normal-case tracking-normal text-[color:var(--text-muted)]" data-text-label>Normal</span>
+        <span class="text-[11px] leading-none normal-case tracking-normal text-[color:var(--text-muted)] text-right" data-text-label>Normal</span>
       </label>
     </div>
   </section>
@@ -33,13 +33,13 @@
           Light oder Dark für Tages- und Abendlicht.
         </p>
       </div>
-      <label class="flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] text-[color:var(--text-subtle)]">
-        <span>Theme</span>
+      <label class="grid grid-cols-[64px_56px_64px] items-center gap-3 text-[10px] uppercase tracking-[0.2em] text-[color:var(--text-subtle)]">
+        <span class="leading-none text-left">Theme</span>
         <input type="checkbox" class="sr-only" data-theme-toggle>
-        <span class="relative inline-flex h-7 w-12 items-center rounded-full border border-[color:var(--glass-border)] bg-[color:var(--glass-weak)] p-1">
-          <span class="h-5 w-5 rounded-full bg-[color:var(--glass-strong)] shadow-sm transition-transform duration-200" data-theme-knob></span>
+        <span class="retro-switch relative inline-flex h-7 w-12 items-center rounded-full border p-1 justify-self-center" data-theme-switch>
+          <span class="retro-knob h-5 w-5 rounded-full shadow-sm transition-transform duration-200" data-theme-knob></span>
         </span>
-        <span class="text-[11px] normal-case tracking-normal text-[color:var(--text-muted)]" data-theme-label>Light</span>
+        <span class="text-[11px] leading-none normal-case tracking-normal text-[color:var(--text-muted)] text-right" data-theme-label>Light</span>
       </label>
     </div>
   </section>

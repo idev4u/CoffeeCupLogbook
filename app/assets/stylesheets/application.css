@@ -79,6 +79,23 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+.retro-switch {
+  background: var(--glass-weak);
+  border-color: var(--glass-border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.retro-switch.is-on {
+  background: var(--accent-soft);
+  border-color: var(--accent-strong);
+}
+
+.retro-switch .retro-knob {
+  background: var(--glass-strong);
+  box-shadow: 0 6px 14px rgba(15, 23, 42, 0.18);
+}
+
 .landscape-only {
   display: none !important;
 }

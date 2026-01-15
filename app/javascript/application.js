@@ -10,6 +10,9 @@ const updateThemeUI = (isDark) => {
   document.querySelectorAll("[data-theme-toggle]").forEach((toggle) => {
     toggle.checked = isDark
   })
+  document.querySelectorAll("[data-theme-switch]").forEach((switchEl) => {
+    switchEl.classList.toggle("is-on", isDark)
+  })
   document.querySelectorAll("[data-theme-knob]").forEach((knob) => {
     knob.classList.toggle("translate-x-5", isDark)
   })
@@ -49,6 +52,9 @@ const updateTextUI = (isLarge) => {
   document.querySelectorAll("[data-text-toggle]").forEach((toggle) => {
     toggle.checked = isLarge
   })
+  document.querySelectorAll("[data-text-switch]").forEach((switchEl) => {
+    switchEl.classList.toggle("is-on", isLarge)
+  })
   document.querySelectorAll("[data-text-knob]").forEach((knob) => {
     knob.classList.toggle("translate-x-5", isLarge)
   })
@@ -84,7 +90,46 @@ const bindTextToggles = () => {
   applyTextSize(stored)
 }
 
+const bindRetroToggles = () => {
+  const toggles = document.querySelectorAll("[data-retro-toggle]")
+  toggles.forEach((toggle) => {
+    if (toggle.dataset.retroBound === "true") {
+      return
+    }
+    toggle.dataset.retroBound = "true"
+    const container = toggle.closest("form")
+    const field = container?.querySelector("[data-retro-field]")
+    const knob = toggle.closest("label")?.querySelector("[data-retro-knob]")
+    const label = toggle.closest("label")?.querySelector("[data-retro-label]")
+    const switchEl = toggle.closest("label")?.querySelector("[data-retro-switch]")
+    const dateInput = field?.querySelector("input[type='date']")
+
+    const sync = () => {
+      const isOn = toggle.checked
+      if (field) {
+        field.classList.toggle("hidden", !isOn)
+      }
+      if (knob) {
+        knob.classList.toggle("translate-x-5", isOn)
+      }
+      if (switchEl) {
+        switchEl.classList.toggle("is-on", isOn)
+      }
+      if (label) {
+        label.textContent = isOn ? "An" : "Aus"
+      }
+      if (dateInput) {
+        dateInput.disabled = !isOn
+      }
+    }
+
+    toggle.addEventListener("change", sync)
+    sync()
+  })
+}
+
 document.addEventListener("turbo:load", () => {
   bindThemeToggles()
   bindTextToggles()
+  bindRetroToggles()
 })

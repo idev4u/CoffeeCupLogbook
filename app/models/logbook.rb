@@ -1,4 +1,6 @@
 class Logbook < ApplicationRecord
+    attr_accessor :opened_on, :retroactive
+
     before_validation :set_package_size_from_type
 
     validates :cup_type, presence: true, length: { maximum: 100 }

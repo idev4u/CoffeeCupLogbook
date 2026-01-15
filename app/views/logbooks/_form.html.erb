@@ -24,95 +24,84 @@
     </div>
   <% end %>
 
-  <!-- Type of entry -->
+  <%= form.hidden_field :amount, value: 1 %>
+
   <div>
-    <%= form.label :cup_type, "What are you logging?", class: "block text-xs font-semibold tracking-wide text-[color:var(--text-subtle)] uppercase" %>
-
-    <div class="mt-3 grid grid-cols-1 gap-3 rounded-[var(--radius-md)]">
-
-      <!-- Coffee -->
+    <%= form.label :cup_type, "Paketgröße", class: "block text-xs font-semibold tracking-wide text-[color:var(--text-subtle)] uppercase" %>
+    <div class="mt-3 grid grid-cols-1 gap-3">
       <label class="flex items-center justify-between rounded-[var(--radius-md)] border border-[color:var(--glass-border)] bg-[color:var(--glass-weak)] px-4 py-3 shadow-sm backdrop-blur
                     cursor-pointer transition peer-checked:border-[color:var(--accent)] peer-checked:bg-[color:var(--accent-soft)] peer-checked:shadow-md">
-
-        <!-- Peer-Input: muss VOR den Elementen mit peer-checked stehen -->
-        <%= form.radio_button :cup_type, "Coffee",
+        <%= form.radio_button :cup_type, "Plauen Gold Package",
               class: "peer sr-only",
-              checked: (logbook.cup_type.blank? || logbook.cup_type == "Coffee") %>
-
-        <!-- Inhalt links -->
+              checked: (logbook.cup_type.blank? || logbook.cup_type == "Plauen Gold Package") %>
         <div class="flex items-center space-x-3">
-          <span class="text-xl">☕</span>
+          <span class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-[color:var(--border-strong)] bg-[color:var(--glass-strong)] text-[color:var(--text)]">
+            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M8 6h8l-1.2 3H9.2L8 6z" />
+              <rect x="7" y="9" width="10" height="10" rx="1.6" />
+            </svg>
+          </span>
           <div class="flex flex-col">
-            <span class="text-sm font-medium text-[color:var(--text)]">Coffee</span>
-            <span class="text-xs text-[color:var(--text-muted)]">Single cup</span>
+            <span class="text-sm font-medium text-[color:var(--text)]">500g Paket</span>
+            <span class="text-xs text-[color:var(--text-muted)]">Plauen Gold</span>
           </div>
         </div>
-
-        <!-- Fake-Radio rechts -->
-        <div class="h-4 w-4 rounded-full border border-[color:var(--border)]
-                    peer-checked:border-[color:var(--accent)] peer-checked:bg-[color:var(--accent)]"></div>
+        <span class="relative flex h-5 w-5 items-center justify-center rounded-full border-[6px] border-[color:var(--border-strong)] box-border transition peer-checked:border-[color:var(--accent)]">
+          <span class="h-[4px] w-[4px] rounded-full bg-white opacity-0 scale-50 transition peer-checked:opacity-100 peer-checked:scale-100"></span>
+        </span>
       </label>
 
-      <!-- Coffee Package (mit Größe) -->
-      <!-- Coffee Package 250g -->
       <label class="flex items-center justify-between rounded-[var(--radius-md)] border border-[color:var(--glass-border)] bg-[color:var(--glass-weak)] px-4 py-3 shadow-sm backdrop-blur
-              cursor-pointer transition peer-checked:border-[color:var(--accent)] peer-checked:bg-[color:var(--accent-soft)] peer-checked:shadow-md">
+                    cursor-pointer transition peer-checked:border-[color:var(--accent)] peer-checked:bg-[color:var(--accent-soft)] peer-checked:shadow-md">
         <%= form.radio_button :cup_type, "Probe Package",
               class: "peer sr-only",
               checked: (logbook.cup_type == "Probe Package") %>
         <div class="flex items-center space-x-3">
-          <span class="text-xl">🛍️</span>
+          <span class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-[color:var(--border-strong)] bg-[color:var(--glass-strong)] text-[color:var(--text)]">
+            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="5" y="8" width="14" height="10" rx="2" />
+              <path d="M9 8V6h6v2" />
+            </svg>
+          </span>
           <div class="flex flex-col">
-            <span class="text-sm font-medium text-[color:var(--text)]">Probe Package</span>
-            <span class="text-xs text-[color:var(--text-muted)]">250g package</span>
+            <span class="text-sm font-medium text-[color:var(--text)]">250g Paket</span>
+            <span class="text-xs text-[color:var(--text-muted)]">Probe Paket</span>
           </div>
         </div>
-
-        <div class="h-4 w-4 rounded-full border border-[color:var(--border)]
-                    peer-checked:border-[color:var(--accent)] peer-checked:bg-[color:var(--accent)]"></div>
-        <!-- %= form.hidden_field :package_size_grams, value: 250 % -->
-      </label>
-
-
-      <!-- Coffee Package 500g -->
-      <label class="flex items-center justify-between rounded-[var(--radius-md)] border border-[color:var(--glass-border)] bg-[color:var(--glass-weak)] px-4 py-3 shadow-sm backdrop-blur
-                    cursor-pointer transition peer-checked:border-[color:var(--accent)] peer-checked:bg-[color:var(--accent-soft)] peer-checked:shadow-md">
-
-        <%= form.radio_button :cup_type, "Plauen Gold Package",
-              class: "peer sr-only",
-              checked: (logbook.cup_type == "Plauen Gold Package") %>
-
-        <div class="flex items-center space-x-3">
-          <span class="text-xl">📦</span>
-          <div class="flex flex-col">
-            <span class="text-sm font-medium text-[color:var(--text)]">Plauen Gold Package</span>
-            <span class="text-xs text-[color:var(--text-muted)]">500g package</span>
-          </div>
-        </div>
-
-        <div class="h-4 w-4 rounded-full border border-[color:var(--border)]
-                    peer-checked:border-[color:var(--accent)] peer-checked:bg-[color:var(--accent)]"></div>
-
-        <!-- %= form.hidden_field :package_size_grams, value: 500 % -->
+        <span class="relative flex h-5 w-5 items-center justify-center rounded-full border-[6px] border-[color:var(--border-strong)] box-border transition peer-checked:border-[color:var(--accent)]">
+          <span class="h-[4px] w-[4px] rounded-full bg-white opacity-0 scale-50 transition peer-checked:opacity-100 peer-checked:scale-100"></span>
+        </span>
       </label>
     </div>
   </div>
 
-  <!-- Amount -->
   <div>
-    <%= form.label :amount, "Amount of Cups", class: "block text-sm font-medium text-[color:var(--text-muted)]" %>
-    <div class="mt-1">
-      <%= form.select :amount,
-            options_for_select((1..10).to_a, logbook.amount || 1),
-            {},
-            class: "block w-full rounded-[var(--radius-sm)] border border-[color:var(--border)] bg-[color:var(--glass-weak)] text-[color:var(--text)] shadow-sm focus:border-[color:var(--accent)] focus:ring-[color:var(--accent)] sm:text-sm" %>
+    <div class="flex flex-col gap-3 rounded-[var(--radius-md)] border border-[color:var(--glass-border)] bg-[color:var(--glass-weak)] px-4 py-4 shadow-sm backdrop-blur sm:flex-row sm:items-center sm:justify-between">
+      <div>
+        <p class="text-sm font-semibold text-[color:var(--text)]">Rückwirkend erfassen</p>
+        <p class="text-xs text-[color:var(--text-muted)]">Falls ihr es erst spaeter bemerkt.</p>
+      </div>
+      <label class="flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] text-[color:var(--text-subtle)]">
+        <span>Datum</span>
+        <input type="checkbox" class="sr-only" data-retro-toggle name="logbook[retroactive]" value="1">
+        <span class="retro-switch relative inline-flex h-7 w-12 items-center rounded-full border p-1" data-retro-switch>
+          <span class="retro-knob h-5 w-5 rounded-full bg-[color:var(--text-inverse)] shadow-sm transition-transform duration-200" data-retro-knob></span>
+        </span>
+        <span class="text-[11px] normal-case tracking-normal text-[color:var(--text-muted)]" data-retro-label>Aus</span>
+      </label>
+    </div>
+    <div class="mt-3 hidden items-center gap-3 text-sm text-[color:var(--text-muted)]" data-retro-field>
+      <label for="logbook_opened_on" class="text-xs font-semibold uppercase tracking-[0.2em] text-[color:var(--text-subtle)]">Datum</label>
+      <%= date_field_tag "logbook[opened_on]",
+            Date.current,
+            id: "logbook_opened_on",
+            max: Date.current,
+            class: "rounded-[10px] border border-[color:var(--border)] bg-[color:var(--glass-weak)] px-3 py-2 text-sm text-[color:var(--text)]" %>
+      <span class="text-xs text-[color:var(--text-subtle)]">Uhrzeit wird auf 09:00 gesetzt.</span>
     </div>
   </div>
 
-  <div class="pt-5">
-    <div class="flex justify-end">
-      <%= link_to "Cancel", logbooks_path, class: "rounded-[var(--radius-sm)] border border-[color:var(--border)] bg-[color:var(--glass-weak)] px-4 py-2 text-sm font-medium text-[color:var(--text-muted)] shadow-sm transition hover:bg-[color:var(--glass-strong)] hover:text-[color:var(--text)] focus:outline-none focus:ring-2 focus:ring-[color:var(--accent)]" %>
-      <%= form.submit "Add Usage", class: "ml-3 inline-flex justify-center rounded-[var(--radius-sm)] border border-transparent bg-[color:var(--accent)] px-4 py-2 text-sm font-medium text-[color:var(--text-on-accent)] shadow-sm transition hover:bg-[color:var(--accent-strong)] focus:outline-none focus:ring-2 focus:ring-[color:var(--accent)]" %>
-    </div>
+  <div class="pt-2">
+    <%= form.submit "Paket öffnen", class: "inline-flex w-full justify-center rounded-full border border-transparent bg-[color:var(--accent)] px-6 py-3 text-sm font-semibold text-[color:var(--text-on-accent)] shadow-sm transition hover:bg-[color:var(--accent-strong)] focus:outline-none focus:ring-2 focus:ring-[color:var(--accent)]" %>
   </div>
 <% end %>

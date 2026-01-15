@@ -22,6 +22,24 @@ class LogbooksController < ApplicationController
   def create
     @logbook = Logbook.new(logbook_params)
 
+    retroactive = params.dig(:logbook, :retroactive) == "1"
+    opened_on = params.dig(:logbook, :opened_on)
+
+    if retroactive && opened_on.present?
+      begin
+        opened_date = Date.iso8601(opened_on)
+        if opened_date > Time.zone.today
+          @logbook.errors.add(:base, "Datum darf nicht in der Zukunft liegen.")
+        else
+          timestamp = Time.zone.local(opened_date.year, opened_date.month, opened_date.day, 9, 0)
+          @logbook.created_at = timestamp
+          @logbook.updated_at = timestamp
+        end
+      rescue ArgumentError
+        @logbook.errors.add(:base, "Datum ist ungueltig.")
+      end
+    end
+
     if @logbook.save
       if params[:quick_add] == "1"
         # @logbook_sum = Logbook.where(cup_type: "Coffee").sum(:amount)
@@ -52,7 +70,9 @@ class LogbooksController < ApplicationController
     params.require(:logbook).permit(
       :cup_type,
       :amount,
-      :package_size_grams
+      :package_size_grams,
+      :opened_on,
+      :retroactive
     )
   end
 end
