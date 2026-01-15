@@ -1,86 +1,55 @@
-<div class="mb-10 mt-8">
-  <div class="rounded-[var(--radius-sm)] border border-[color:var(--glass-border)] bg-[color:var(--glass-bg)] px-6 py-6 shadow-sm backdrop-blur-xl">
-    <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-      <div>
-        <!-- p class="text-xs font-semibold uppercase tracking-[0.2em] text-gray-700">Coffee log</p -->
-        <h1 class="text-3xl font-bold text-[color:var(--text)]">Coffee Counter</h1>
-        <p class="mt-1 text-sm text-[color:var(--text-muted)]">Keep your ritual tidy: log another cup with a single click.</p>
+<div class="mx-auto flex max-w-xl flex-col gap-6 pb-24">
+  <section class="rounded-[var(--radius-sm)] border border-[color:var(--glass-border)] bg-[color:var(--glass-bg)] shadow-lg backdrop-blur-xl">
+    <div class="px-6 py-6">
+      <p class="text-[10px] font-semibold uppercase tracking-[0.28em] text-[color:var(--text-subtle)]">
+        Heute: <%= Time.zone.today.strftime("%-d. %B") %>
+      </p>
+      <div class="mt-3">
+        <div class="relative">
+          <div class="text-5xl font-semibold tracking-tight text-[color:var(--text)] sm:text-6xl">
+            <span id="coffee_sum"><%= @today_cups %></span>
+          </div>
+        </div>
+        <p class="mt-2 text-sm text-[color:var(--text-muted)]">
+          Schon <span id="coffee_sum_inline"><%= @today_cups %></span> Tassen Kaffee
+        </p>
       </div>
-      <%= link_to new_logbook_path, class: "inline-flex items-center gap-2 rounded-full border border-transparent bg-[color:var(--accent)] px-4 py-2 text-sm font-semibold text-[color:var(--text-on-accent)] transition-colors hover:bg-[color:var(--accent-strong)] focus:outline-none focus:ring-2 focus:ring-[color:var(--accent)] focus:ring-offset-2 ring-offset-[color:var(--glass-weak)]" do %>
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-          <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd"/>
-        </svg>
-        Add
-      <% end %>
+      <p class="mt-2 text-sm text-[color:var(--text-muted)]">
+        Gestern waren es <%= @yesterday_cups %> Tassen.
+      </p>
+      <p class="mt-2 text-xs text-[color:var(--text-subtle)]">
+        <% if @last_package_at %>
+          Letztes Paket: <%= @last_package_at.to_date.strftime("%-d. %B") %>
+        <% else %>
+          Letztes Paket: Noch kein Paket erfasst
+        <% end %>
+      </p>
     </div>
-  </div>
-</div>
+  </section>
 
-<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-2 mb-8">
-  <div class="overflow-visible rounded-[var(--radius-sm)] border border-[color:var(--glass-border)] bg-[color:var(--glass-bg)] shadow-sm backdrop-blur-xl">
-    <div class="px-4 py-5 sm:p-6">
-      <div class="flex items-center">
-        <div class="flex-shrink-0 rounded-[var(--radius-md)] bg-[color:var(--accent)] p-3 text-[color:var(--text-on-accent)] shadow-sm">
+  <section class="rounded-[var(--radius-sm)] border border-[color:var(--glass-border)] bg-[color:var(--glass-bg)] shadow-lg backdrop-blur-xl">
+    <div class="flex flex-col items-center gap-4 px-6 py-6 text-center">
+      <div class="relative flex w-full justify-center">
+        <div id="coffee_burst" class="pointer-events-none absolute right-10 top-0 -translate-y-3"></div>
         <%= button_to logbooks_path,
               method: :post,
               params: { logbook: { cup_type: "Coffee", amount: 1 }, quick_add: "1" },
-              form: { data: { turbo: true }, class: "inline" },
-              class: "flex-shrink-0 rounded-[var(--radius-md)] bg-[color:var(--accent)] p-3 text-[color:var(--text-on-accent)] shadow-sm transition hover:bg-[color:var(--accent-strong)] active:scale-95",
-              aria: { label: "Kaffee hinzufügen" } do %>
-
-            <svg class="h-19 w-19" xmlns="http://www.w3.org/2000/svg" fill="currentColor" stroke="currentColor" viewBox="0 0 640 640">
-                <!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M184 48C170.7 48 160 58.7 160 72C160 110.9 183.4 131.4 199.1 145.1L200.2 146.1C216.5 160.4 224 167.9 224 184C224 197.3 234.7 208 248 208C261.3 208 272 197.3 272 184C272 145.1 248.6 124.6 232.9 110.9L231.8 109.9C215.5 95.7 208 88.1 208 72C208 58.7 197.3 48 184 48zM128 256C110.3 256 96 270.3 96 288L96 480C96 533 139 576 192 576L384 576C425.8 576 461.4 549.3 474.5 512L480 512C550.7 512 608 454.7 608 384C608 313.3 550.7 256 480 256L128 256zM480 448L480 320C515.3 320 544 348.7 544 384C544 419.3 515.3 448 480 448zM320 72C320 58.7 309.3 48 296 48C282.7 48 272 58.7 272 72C272 110.9 295.4 131.4 311.1 145.1L312.2 146.1C328.5 160.4 336 167.9 336 184C336 197.3 346.7 208 360 208C373.3 208 384 197.3 384 184C384 145.1 360.6 124.6 344.9 110.9L343.8 109.9C327.5 95.7 320 88.1 320 72z"/>
+              form: { data: { turbo: true }, class: "w-full flex justify-center" },
+              class: "inline-flex min-h-[64px] w-full max-w-md items-center justify-center rounded-full bg-gradient-to-b from-[color:var(--accent)] to-[color:var(--accent-strong)] px-6 py-5 text-lg font-semibold text-[color:var(--text-on-accent)] shadow-lg transition hover:shadow-xl active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-[color:var(--accent)] focus:ring-offset-2 ring-offset-[color:var(--glass-weak)]",
+              aria: { label: "Kaffee hinzufuegen" } do %>
+          <span class="inline-flex items-end gap-2">
+            <svg class="h-[1.18em] w-[1.18em] text-[color:var(--text-on-accent)]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" fill="currentColor" aria-hidden="true">
+              <path d="M184 48C170.7 48 160 58.7 160 72C160 110.9 183.4 131.4 199.1 145.1L200.2 146.1C216.5 160.4 224 167.9 224 184C224 197.3 234.7 208 248 208C261.3 208 272 197.3 272 184C272 145.1 248.6 124.6 232.9 110.9L231.8 109.9C215.5 95.7 208 88.1 208 72C208 58.7 197.3 48 184 48zM128 256C110.3 256 96 270.3 96 288L96 480C96 533 139 576 192 576L384 576C425.8 576 461.4 549.3 474.5 512L480 512C550.7 512 608 454.7 608 384C608 313.3 550.7 256 480 256L128 256zM480 448L480 320C515.3 320 544 348.7 544 384C544 419.3 515.3 448 480 448zM320 72C320 58.7 309.3 48 296 48C282.7 48 272 58.7 272 72C272 110.9 295.4 131.4 311.1 145.1L312.2 146.1C328.5 160.4 336 167.9 336 184C336 197.3 346.7 208 360 208C373.3 208 384 197.3 384 184C384 145.1 360.6 124.6 344.9 110.9L343.8 109.9C327.5 95.7 320 88.1 320 72z"/>
             </svg>
-            <% end %>
-        </div>
-        <div class="ml-8 w-0 flex-1 relative">
-          <dl>
-            <dt class="text-sm font-medium text-[color:var(--text-subtle)] whitespace-nowrap">
-              Today Coffee
-              <span class="relative inline-block">
-                Cups
-                <div id="coffee_burst"
-                    class="absolute left-1/2 -top-2 translate-x-4 -translate-y-full pointer-events-none z-20"></div>
-              </span>
-            </dt>
-            <dd>
-              <div class="text-7xl font-medium text-[color:var(--text)]">
-                <!--span id="coffee_sum"><%= @logbook_sum %></span-->
-                <span id="coffee_sum"><%= @today_cups %></span>
-              </div>
-            </dd>
-          </dl>
-        </div>
+            <span class="leading-none">+1 Kaffee</span>
+          </span>
+        <% end %>
       </div>
+      <p class="text-xs text-[color:var(--text-subtle)]">Ein Tap zaehlt eine weitere Tasse.</p>
     </div>
-  </div>
+  </section>
+</div>
 
-  <div class="overflow-hidden rounded-[var(--radius-sm)] border border-[color:var(--glass-border)] bg-[color:var(--glass-bg)] shadow-sm backdrop-blur-xl">
-    <div class="px-4 py-5 sm:p-6">
-      <div class="flex items-center">
-        <div class="flex-shrink-0 rounded-[var(--radius-md)] bg-[color:var(--accent)] p-3 text-[color:var(--text-on-accent)] shadow-sm">
-            <svg class="h-25 w-25" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" stroke="currentColor" stroke-width="0" stroke-linecap="round" stroke-linejoin="round">
-                <!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
-                <svg version="1.1" xml:space="preserve" xmlns:serif="http://www.serif.com/" xmlns:xlink="http://www.w3.org/1999/xlink">
-                <rect height="15.36" id="_13" style="fill:none;" width="15.36" x="0" y="0">
-                  </rect>
-                  <path d="M3.783,2.836c-0.111,3.525 -0.355,7.048 -0.334,10.575c0.005,0.147 0.131,0.267 0.276,0.269l6.71,0l-0.343,-10.829c-2.102,0.032 -4.206,-0.01 -6.309,-0.015Zm7.075,0c-0.112,0.003 -0.223,0.006 -0.334,0.008l0.332,10.494l0.346,-0.384c0.026,-0.026 0.033,-0.043 0.113,-0.066l0.599,-0.134l-1.056,-9.918Zm-1.807,3.199c0.257,0.019 0.468,0.229 0.487,0.487c0.029,1.16 0.001,2.32 0.001,3.48c-0.007,0.265 -0.221,0.49 -0.488,0.51c-1.401,0.035 -2.803,0 -4.204,0c-0.265,-0.006 -0.49,-0.22 -0.51,-0.487c-0.029,-1.16 0,-2.32 0,-3.48c0.006,-0.265 0.22,-0.49 0.487,-0.51c0.026,-0.001 0.08,-0.002 0.08,-0.002l4.069,0c0,0 0.052,0.001 0.078,0.002Zm-4.198,0.431c-0.046,0.001 -0.081,0.035 -0.085,0.077c-0.028,1.155 -0.085,2.313 0.001,3.464c0.005,0.04 0.038,0.071 0.077,0.074c0.024,0 0.075,0.001 0.075,0.001l4.027,0.004c0,0 0.057,-0.004 0.085,-0.006c0.039,-0.004 0.071,-0.037 0.074,-0.077c0.028,-1.154 0.085,-2.312 -0.001,-3.464c-0.005,-0.039 -0.038,-0.07 -0.077,-0.073c-1.391,-0.034 -2.784,0 -4.176,0Zm2.799,0.651c0.119,0.067 0.223,0.158 0.303,0.271c0.586,0.834 -0.271,2.408 -1.396,2.097c-0.074,-0.02 -0.146,-0.05 -0.213,-0.089c-0.058,-0.034 -0.113,-0.074 -0.163,-0.12c-0.76,-0.702 -0.09,-2.3 1.041,-2.28c0.149,0.007 0.294,0.048 0.422,0.118c0.002,0.001 0.004,0.002 0.006,0.003Zm-0.047,0.543c-0.268,0.481 -0.552,0.953 -0.831,1.428c0.457,0.041 0.938,-0.473 0.945,-1.03c0.001,-0.136 -0.037,-0.282 -0.114,-0.398Zm-0.373,-0.231c-0.018,-0.001 -0.035,-0.002 -0.054,-0.002c-0.651,0.025 -1.115,1.002 -0.788,1.451c0.271,-0.488 0.56,-0.967 0.842,-1.449Zm-3.786,-5.749l7.39,0l-0.005,0.723l-0.53,0l0,0l-6.727,0l0,0l-0.128,0l0,-0.723Z">
-                  </path>
-                </svg>
-            </svg>
-        </div>
-        <div class="ml-8 w-0 flex-1 relative">
-          <dl>
-            <dt class="text-sm font-medium text-[color:var(--text-subtle)] truncate">
-              Total Coffee Package
-            </dt>
-            <dd>
-              <div class="text-7xl font-medium text-[color:var(--text)]">
-                <%= @package_logbook_sum %>
-              </div>
-            </dd>
-          </dl>
-        </div>
-      </div>
-  </div>
+<%= link_to "Paket hinzufuegen",
+      new_logbook_path,
+      class: "fixed bottom-6 left-1/2 z-30 -translate-x-1/2 rounded-full bg-gradient-to-b from-[color:var(--accent)] to-[color:var(--accent-strong)] px-5 py-3 text-sm font-semibold text-[color:var(--text-on-accent)] shadow-lg transition hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-[color:var(--accent)] focus:ring-offset-2 ring-offset-[color:var(--glass-weak)] md:hidden" %>

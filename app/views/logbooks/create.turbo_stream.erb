@@ -14,3 +14,7 @@
 <%= turbo_stream.update "coffee_sum" do %>
   <%= @today_cups %>
 <% end %>
+
+<%= turbo_stream.update "coffee_sum_inline" do %>
+  <%= @today_cups %>
+<% end %>

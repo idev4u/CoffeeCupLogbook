@@ -24,6 +24,11 @@
               class: "rounded-full border px-4 py-2 text-xs font-medium transition " \
                      "#{current_page?(root_path) ? 'bg-[color:var(--glass-strong)] text-[color:var(--text)] border-[color:var(--glass-border-strong)]' : 'border-transparent text-[color:var(--text-muted)] hover:text-[color:var(--text)] hover:bg-[color:var(--glass-weak)]'}" %>
 
+          <%= link_to "Paket hinzufuegen",
+              new_logbook_path,
+              class: "rounded-full border px-4 py-2 text-xs font-medium transition " \
+                     "#{current_page?(new_logbook_path) ? 'bg-[color:var(--glass-strong)] text-[color:var(--text)] border-[color:var(--glass-border-strong)]' : 'border-transparent text-[color:var(--text-muted)] hover:text-[color:var(--text)] hover:bg-[color:var(--glass-weak)]'}" %>
+
           <%# Stats-Link %>
           <%= link_to "Stats",
               coffee_stats_path,

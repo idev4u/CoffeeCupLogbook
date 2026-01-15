@@ -3,11 +3,12 @@ class LogbooksController < ApplicationController
     # @logbooks = Logbook.all
     # @logbooks = Logbook.where(cup_type: "Coffee")
 
-    today      = Time.zone.today
-    @today_cups     = Logbook.where(cup_type: "Coffee", created_at: today.all_day).sum(:amount)
-    @package_logbook = Logbook.where(cup_type: "Plauen Gold Package")
+    today = Time.zone.today
+    yesterday = today - 1.day
 
-    @package_logbook_sum = Logbook.where(cup_type: "Plauen Gold Package").sum(:amount)
+    @today_cups = Logbook.where(cup_type: "Coffee", created_at: today.all_day).sum(:amount)
+    @yesterday_cups = Logbook.where(cup_type: "Coffee", created_at: yesterday.all_day).sum(:amount)
+    @last_package_at = Logbook.where.not(package_size_grams: nil).order(created_at: :desc).pick(:created_at)
   end
 
   def show
