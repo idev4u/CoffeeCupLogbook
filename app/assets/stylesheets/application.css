@@ -100,7 +100,29 @@ body {
   display: none !important;
 }
 
-@media (orientation: landscape) and (max-height: 520px) {
+.nav-mobile-card {
+  width: min(260px, 86vw);
+  margin-left: auto;
+  margin-right: 12px;
+}
+
+@media (orientation: landscape) and (max-width: 1024px) {
+  body .nav-desktop {
+    display: none !important;
+  }
+
+  body .nav-mobile {
+    display: flex !important;
+  }
+
+  body .nav-mobile-menu {
+    display: block !important;
+  }
+
+  body .nav-mobile-menu.hidden {
+    display: none !important;
+  }
+
   body .landscape-only {
     display: block !important;
   }

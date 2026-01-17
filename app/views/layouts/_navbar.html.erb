@@ -2,8 +2,18 @@
   <div class="w-full px-4 sm:px-6 lg:px-8">
     <div class="mx-auto flex h-14 max-w-5xl items-center justify-between gap-4 rounded-full border border-[color:var(--glass-border)] bg-[color:var(--glass-bg)] px-4 backdrop-blur-xl shadow-lg">
       
+      <% show_back = current_page?(settings_path) || current_page?(new_logbook_path) || current_page?(coffee_stats_path) %>
       <!-- Logo links -->
       <div class="flex items-center gap-2">
+        <% if show_back %>
+          <%= link_to root_path,
+            class: "md:hidden inline-flex h-9 w-9 items-center justify-center rounded-full border border-[color:var(--glass-border-strong)] bg-[color:var(--glass-weak)] text-[color:var(--text)] shadow-sm backdrop-blur-xl transition hover:bg-[color:var(--glass-strong)] focus:outline-none focus:ring-2 focus:ring-[color:var(--accent)]",
+            aria: { label: "Zurück zur Startseite" } do %>
+            <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M15 6l-6 6 6 6" />
+            </svg>
+          <% end %>
+        <% end %>
         <%= link_to root_path do %>
           <div class="flex items-center gap-2">
             <%= image_tag "tally_color_premium.svg", class: "h-8 w-auto", alt: "Tally GO! logo" %>
@@ -17,7 +27,7 @@
       <!-- Rechts: Desktop-Navigation + Mobile-Burger -->
       <div class="flex items-center gap-4">
         <!-- Desktop-Navigation -->
-        <div class="hidden md:flex items-center gap-2">
+        <div class="nav-desktop hidden md:flex items-center gap-2">
           <%# Home-Link %>
           <%= link_to "Home",
               root_path,
@@ -41,19 +51,19 @@
                      "#{current_page?(settings_path) ? 'bg-[color:var(--glass-strong)] text-[color:var(--text)] border-[color:var(--glass-border-strong)]' : 'border-transparent text-[color:var(--text-muted)] hover:text-[color:var(--text)] hover:bg-[color:var(--glass-weak)]'}" %>
         </div>
 
-        <!-- Mobile: Burger-Menü -->
-        <div class="flex items-center gap-2 md:hidden">
+        <!-- Mobile: Menü -->
+        <div class="nav-mobile flex items-center gap-2 md:hidden">
           <button 
             type="button"
-            class="inline-flex items-center justify-center rounded-full p-2 text-[color:var(--text-muted)] hover:bg-[color:var(--glass-weak)] focus:outline-none focus:ring-2 focus:ring-[color:var(--accent)]"
+            class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[color:var(--glass-border-strong)] bg-[color:var(--glass-weak)] text-[color:var(--text)] shadow-sm backdrop-blur-xl transition hover:bg-[color:var(--glass-strong)] focus:outline-none focus:ring-2 focus:ring-[color:var(--accent)]"
             aria-controls="mobile-menu"
             aria-expanded="false"
             onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
             <span class="sr-only">Menü öffnen</span>
-            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
-                 viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round"
-                    d="M3.75 6.75h16.5M3.75 12h16.5M3.75 17.25h16.5" />
+            <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <circle cx="6.5" cy="12" r="1.6" />
+              <circle cx="12" cy="12" r="1.6" />
+              <circle cx="17.5" cy="12" r="1.6" />
             </svg>
           </button>
         </div>
@@ -63,27 +73,50 @@
   </div>
 
   <!-- Mobile-Navigation (unter der Navbar) -->
-  <div id="mobile-menu" class="md:hidden hidden pt-3">
-    <div class="space-y-2 rounded-[var(--radius-md)] border border-[color:var(--glass-border)] bg-[color:var(--glass-bg)] px-4 py-3 backdrop-blur-xl">
-      <%= link_to "Home",
-          root_path,
-          class: "block rounded-full px-3 py-2 text-sm font-medium " \
-                 "#{current_page?(root_path) ? 'bg-[color:var(--glass-strong)] text-[color:var(--text)]' : 'text-[color:var(--text-muted)] hover:bg-[color:var(--glass-weak)] hover:text-[color:var(--text)]'}" %>
+  <div id="mobile-menu" class="nav-mobile-menu md:hidden hidden pt-3">
+    <div class="nav-mobile-card space-y-2 rounded-[var(--radius-md)] border border-[color:var(--glass-border)] bg-[color:var(--glass-bg)] px-4 py-3 backdrop-blur-xl">
+      <%= link_to root_path,
+          class: "inline-flex w-full items-center gap-2 rounded-full px-3 py-2 text-sm font-medium " \
+                 "#{current_page?(root_path) ? 'bg-[color:var(--glass-strong)] text-[color:var(--text)]' : 'text-[color:var(--text-muted)] hover:bg-[color:var(--glass-weak)] hover:text-[color:var(--text)]'}" do %>
+        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M4 11.5L12 5l8 6.5" />
+          <path d="M6.5 10.5V18c0 .83.67 1.5 1.5 1.5H11V14h2v5.5h3c.83 0 1.5-.67 1.5-1.5v-7.5" />
+        </svg>
+        <span>Home</span>
+      <% end %>
 
-      <%= link_to "Paket öffnen",
-          new_logbook_path,
-          class: "landscape-only block rounded-full px-3 py-2 text-sm font-medium " \
-                 "#{current_page?(new_logbook_path) ? 'bg-[color:var(--glass-strong)] text-[color:var(--text)]' : 'text-[color:var(--text-muted)] hover:bg-[color:var(--glass-weak)] hover:text-[color:var(--text)]'}" %>
+      <%= link_to new_logbook_path,
+          class: "inline-flex w-full items-center gap-2 rounded-full px-3 py-2 text-sm font-medium " \
+                 "#{current_page?(new_logbook_path) ? 'bg-[color:var(--glass-strong)] text-[color:var(--text)]' : 'text-[color:var(--text-muted)] hover:bg-[color:var(--glass-weak)] hover:text-[color:var(--text)]'}" do %>
+        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M7 7.5h10" />
+          <path d="M6 7.5l1.5 12.5c.08.66.64 1.15 1.3 1.15h6.4c.66 0 1.22-.49 1.3-1.15L18 7.5" />
+          <path d="M9.5 7.5V6c0-1.1.9-2 2-2h1c1.1 0 2 .9 2 2v1.5" />
+        </svg>
+        <span>Paket öffnen</span>
+      <% end %>
 
-      <%= link_to "Stats",
-          coffee_stats_path,
-          class: "block rounded-full px-3 py-2 text-sm font-medium " \
-                 "#{current_page?(coffee_stats_path) ? 'bg-[color:var(--glass-strong)] text-[color:var(--text)]' : 'text-[color:var(--text-muted)] hover:bg-[color:var(--glass-weak)] hover:text-[color:var(--text)]'}" %>
+      <%= link_to coffee_stats_path,
+          class: "inline-flex w-full items-center gap-2 rounded-full px-3 py-2 text-sm font-medium " \
+                 "#{current_page?(coffee_stats_path) ? 'bg-[color:var(--glass-strong)] text-[color:var(--text)]' : 'text-[color:var(--text-muted)] hover:bg-[color:var(--glass-weak)] hover:text-[color:var(--text)]'}" do %>
+        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M4 20h16" />
+          <path d="M7 20v-6" />
+          <path d="M12 20v-10" />
+          <path d="M17 20v-3" />
+        </svg>
+        <span>Stats</span>
+      <% end %>
 
-      <%= link_to "Einstellungen",
-          settings_path,
-          class: "block rounded-full px-3 py-2 text-sm font-medium " \
-                 "#{current_page?(settings_path) ? 'bg-[color:var(--glass-strong)] text-[color:var(--text)]' : 'text-[color:var(--text-muted)] hover:bg-[color:var(--glass-weak)] hover:text-[color:var(--text)]'}" %>
+      <%= link_to settings_path,
+          class: "inline-flex w-full items-center gap-2 rounded-full px-3 py-2 text-sm font-medium " \
+                 "#{current_page?(settings_path) ? 'bg-[color:var(--glass-strong)] text-[color:var(--text)]' : 'text-[color:var(--text-muted)] hover:bg-[color:var(--glass-weak)] hover:text-[color:var(--text)]'}" do %>
+        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="3.2" />
+          <path d="M12 2.8v2.4M12 18.8v2.4M4.9 4.9l1.7 1.7M17.4 17.4l1.7 1.7M2.8 12h2.4M18.8 12h2.4M4.9 19.1l1.7-1.7M17.4 6.6l1.7-1.7" />
+        </svg>
+        <span>Einstellungen</span>
+      <% end %>
     </div>
   </div>
 </nav>
